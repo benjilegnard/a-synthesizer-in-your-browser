@@ -1,0 +1,24 @@
+{
+  "name": "a-synthesizer-in-your-browser",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@catppuccin/highlightjs": "^1.0.0",
+    "@catppuccin/palette": "^1.7.1",
+    "@preact/preset-vite": "^2.10.0",
+    "@types/reveal.js": "^5.0.5",
+    "sass": "^1.83.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "preact": "^10.25.4",
+    "reveal.js": "^5.1.0"
+  }
+}
