@@ -82,6 +82,15 @@ Auteur ?
 ## L'api WebAudio
 
 
+### Rigolo ?
+
+L'API est concue exactement comme on utiliserais un synthétiseur.
+
+```typescript
+const context = new AudioContext();
+const gain = new GainNode();
+```
+
 
 ## Features du MS-20
 
