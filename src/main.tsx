@@ -21,6 +21,7 @@ deck.initialize({
     hashOneBasedIndex: true,
     hash: true,
     transition: "none",
+    backgroundTransition: "none",
     history: true,
 }).then(() => {
     render(<HighPass/>, document.getElementById("high-pass"));
