@@ -99,6 +99,15 @@ Auteur ?
 
 ### Le son (pour un ordinateur)
 
+### Un slide avec du tsx ?
+
+<div id="trigonometry"></div>
+
+
+### Un slide avec du tsx ?
+
+<div id="sound-test"></div>
+
 
 
 ## L'api WebAudio
