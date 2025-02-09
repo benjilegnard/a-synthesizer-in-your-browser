@@ -9,11 +9,7 @@ lang: fr
 
 
 ## Introduction
-
-
-<!-- .slide: data-background-image="images/korg-official-photo.jpg" data-background-position="center center" data-background-size="cover" -->
-### <!-- Introduction -->
----
+Notes:
 - un deux un deux? titre.
 - Bref, j'ai fait une clownerie
 - aujourd'hui je vais vous parler d'un synthétiseur 
@@ -24,8 +20,10 @@ lang: fr
 ### Side-project 
 - apprendre 👨‍🎓
 - s'amuser 🤡
----
-Pas d'objectifs sinon apprendre et s'amuser.
+Notes:
+- un side project qui m'a pris beaucoup de temps
+- voire même fait m'arracher les cheveux que je n'ai plus
+- Un side project, ca devrait pas avoir d'autres d'objectifs sinon apprendre et s'amuser.
 
 
 ### Stack Technique 
@@ -33,8 +31,8 @@ Pas d'objectifs sinon apprendre et s'amuser.
 - api WebAudio
 - azure/github actions
 - faire "propre" quand même
----
-c'est une excuse
+Notes:
+- c'est une excuse
 
 
 ### Qui-suis,je ?
@@ -45,20 +43,43 @@ c'est une excuse
 
 
 
-<!-- .slide: data-background-image="images/" data-background-position="bottom left" data-background-size="contain" -->
 ## Histoire(s)
 
 
-### Le ms-20
-// TODO
-
-
-### Jean-pierre
-// TODO
+## Jean-Pierre
+<img src="/images/jean-pierre/araignées-malades-dans-la-cave-24.jpg" />
+Notes:
+- lui, c'est mon oncle Jean-pierre.
+- enfin, c'était.
+- là, il est dans la cave avec le groupe de mon père,
+- et il joue du synthétiseur
+- on est en mai 1980 ou quelque chose comme ça
 
 
 ### Les araignées malades
-// TODO
+
+<img src="/images/jean-pierre/araignées-malades-dans-la-somme-12-juste-avant-le-départ-au-73.jpg" />
+
+
+<img src="/images/jean-pierre/araignées-malades-dans-la-somme-11-la-voiture-des-musiciens.jpg" />
+
+Notes:
+- avec mon père, qui prends la photo ici.
+- ils ont un groupe et ils jouent dans les caves et quelques balles musettes du nord-pas de calais ou de la somme.
+
+
+### In memoriam (1956-2018)
+<img src="/images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
+
+
+### Le KORG MS-20
+
+<img src="images/korg-official-photo.jpg" />
+Notes:
+- Le MS-20, sorti en 1978, c'est un synthétiseur, un clavier électrique
+- extrêmement populaire dans les années 80, il a un 
+// TODO, mettre l'intro side projet après l'histoire
+
 
 
 
@@ -94,6 +115,49 @@ const gain = new GainNode();
 
 ## Features du MS-20
 
+<abbr title="Read The Fantastic Manual">R.T.F.M.</abbr>
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-01.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-02.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-03.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-04.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-05.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-06.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-07.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-08.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-09.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-10.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-11.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-12.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-13.png" />
+
+
+<img src="/images/korg-docs/ms-20-owners-manual-14.png" />
 
 
 ## Conception
