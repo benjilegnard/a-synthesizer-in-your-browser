@@ -17,6 +17,18 @@ Dans ce talk, on va parler de musique électronique, et du mythique KORG MS-20, 
 Mais aussi de technologies web : d'accessibilité, de composants (p)react, de gestion d'état, de signals et de tests automatisés...
 ```
 
+## Sources (à redescendre)
+
+Par ordre d'apparition dans les slides:
+
+- McCaulay Kulkin dans "Maman, j'ai raté l'avion"
+- Photo du Korg en introduction, site officiel de KORG : <https://www.korg.com/fr/products/synthesizers/ms_20mini/>
+- "Les araignées malade dans la cave" : Archives personnelles, Jean-Paul Legrand
+- Sound System Wind meme : Ryan gumm, Jackass 3 - Jet Engine Stunt <https://www.youtube.com/watch?v=lEFx1qmW4ts>
+- Vidéo "Functions describe the world" : On Mathematical Maturity - Thomas Garrity <https://www.youtube.com/watch?v=zHU1xH6Ogs4>
+- Illustration Onde Sinuosidale <https://en.wikipedia.org/wiki/Sine_wave>
+
+
 ## Plan
 
 - introduction

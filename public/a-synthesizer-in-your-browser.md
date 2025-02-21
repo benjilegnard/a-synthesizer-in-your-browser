@@ -48,8 +48,10 @@ Notes:
 ## Histoire(s)
 
 
-### Jean-Pierre
+### Mon oncle Jean-Pierre
+
 <img src="/images/jean-pierre/araignées-malades-dans-la-cave-24.jpg" />
+
 Notes:
 - lui, c'est mon oncle Jean-pierre.
 - enfin, c'était.
@@ -68,7 +70,13 @@ Notes:
 Notes:
 - avec mon père, qui prends la photo ici.
 - ils ont un groupe et ils jouent dans les caves et quelques balles musettes du nord-pas de calais ou de la somme.
+- Stan Kogut-Kubiak à la basse
+- Daniel Wasilewski à la batterie
 
+
+### In memoriam (1956-2020)
+
+<img src="/images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
 
 
 ### Le KORG MS-20
@@ -85,11 +93,45 @@ Notes:
 
 
 ### Sans musique, la vie serait une erreur
-Nitch, Nietch, Nietsche
+<span class="fragment">Frédéric <span class="fragment strike">Nitch</span></span>
+<span class="fragment"><span class="fragment strike">, Nietche</span></span>
+<span class="fragment"><span class="fragment strike">, Nietsche</span></span>
+<br/>
+<span class="fragment">Friedrich Nietzsche</span>
 
 
 ### La musique c'est le silence entre les notes
-Auteur ?
+Claude Debussy
+Notes:
+- En vrai, il l'avait piqué à mozart
+
+
+### Physiquement
+
+Vibration dans l'air => Vos Tympans
+<img src="images/memes/functions-describe-the-world.png"/>
+
+
+### La musique, c'est des maths
+
+Benjamin Legrand (après trois bières)
+
+<img src="images/memes/functions-describe-the-world.png"/>
+Notes:
+- Si vous connaissez pas cette vid elle est trop bien
+- Tout peut être décrit par une fonction mathématique
+- 
+
+
+### Pour un ordinateur
+
+C'est un Array<number>
+```typescript
+[0.52, 0.5, 0.3]
+```
+
+Notes:
+- todo
 
 
 ### Un slide avec du tsx ?
