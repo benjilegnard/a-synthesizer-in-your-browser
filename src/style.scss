@@ -50,6 +50,7 @@ $mainFont: "'Source Sans Pro', Arial, sans-serif";
 $headingFont: "'Poppins', Helvetica, sans-serif";
 $codeFont: Hack, monospace;
 $headingTextShadow: none;
+$headingMargin: 0 0 10px 0;
 $headingLetterSpacing: normal;
 $headingTextTransform: normal;
 $headingFontWeight: 600;
@@ -83,6 +84,11 @@ iframe {
 img,
 svg {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal svg {
+  max-width: 95%;
+  max-height: 95%;
 }
 
 .row {
