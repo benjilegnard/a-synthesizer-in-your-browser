@@ -14,45 +14,58 @@ import { Trigonometry } from "./slides/trigonometry";
 import { Sound } from "./slides/sound-0-test";
 
 let deck = new Reveal({
-  plugins: [Markdown, Notes, Highlight],
+    plugins: [Markdown, Notes, Highlight],
 });
 
+
 const components: Record<string, ComponentChild> = {
-  "high-pass": <HighPass />,
-  trigonometry: <Trigonometry />,
-  "sound-test": <Sound />,
+    "high-pass": <HighPass />,
+    trigonometry: <Trigonometry />,
+    "sound-test": <Sound />,
 };
 
 deck
-  .initialize({
-    progress: false,
-    controls: false,
-    slideNumber: "c/t",
-    showSlideNumber: "speaker",
-    hashOneBasedIndex: true,
-    hash: true,
-    transition: "none",
-    backgroundTransition: "none",
-    history: true,
-  })
-  .then(() => {
-    // initialize preact components in slides
-    Object.keys(components).forEach((id) => {
-      const element = document.getElementById(id);
-      if (!element) {
-        console.warn(`Element with id ${id} is missing!`);
-        return;
-      }
-      render(components[id], element);
+    .initialize({
+        progress: false,
+        controls: false,
+        slideNumber: "c/t",
+        showSlideNumber: "speaker",
+        hashOneBasedIndex: true,
+        hash: true,
+        transition: "none",
+        backgroundTransition: "none",
+        history: true,
+        keyboard: { b: null },
+    })
+    .then(() => {
+        // initialize preact components in slides
+        Object.keys(components).forEach((id) => {
+            const element = document.getElementById(id);
+            if (!element) {
+                console.warn(`Element with id ${id} is missing!`);
+                return;
+            }
+            render(components[id], element);
+        });
     });
-  });
 
+// execute order 66 ( remove B to "pause" keybinding )
+document.addEventListener("keydown", (event) => {
+    if (event.keyCode === 66) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        // todo execute slide animation
+    }
+});
 document.addEventListener("keypress", (event) => {
-  const mappings: Record<string, () => void> = {
-    h: Reveal.left,
-    j: Reveal.down,
-    k: Reveal.up,
-    l: Reveal.right,
-  };
-  mappings[event.key] ?? mappings[event.key]();
+    event.preventDefault();
+    console.log("key", event.key);
+    const mappings: Record<string, () => void> = {
+        h: Reveal.left,
+        j: Reveal.down,
+        k: Reveal.up,
+        l: Reveal.right,
+    };
+    mappings[event.key] ?? mappings[event.key]();
 });

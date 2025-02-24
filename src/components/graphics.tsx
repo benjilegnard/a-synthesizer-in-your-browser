@@ -9,7 +9,7 @@ export const Graphics: FunctionalComponent = (props) => (
             id="background"
             width="1280"
             height="720"
-            fill="#1e1e2e"
+            fill="#11111b"
             stroke="none" />
         {props.children}
     </svg>

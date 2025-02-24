@@ -1,0 +1,4 @@
+- [ ] corriger souci dimensionnement svg / ombre etc...
+- [ ] audio visualizer commun entre slides
+- [ ] slide génération son => sinusoide A440
+- [ ] slide génération random noise => 

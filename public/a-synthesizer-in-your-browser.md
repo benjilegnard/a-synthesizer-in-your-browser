@@ -136,19 +136,19 @@ Notes:
 
 ### Un slide avec du tsx ?
 
-<div id="high-pass"></div>
+<div id="high-pass" class="graphics"></div>
 
 
 ### Le son (pour un ordinateur)
 
 ### Un slide avec du tsx ?
 
-<div id="trigonometry"></div>
+<div id="trigonometry" class="graphics"></div>
 
 
 ### Un slide avec du tsx ?
 
-<div id="sound-test"></div>
+<div id="sound-test" class="graphics"></div>
 
 
 

@@ -4,6 +4,8 @@ import { Graphics } from "../components/graphics";
 export const Trigonometry = () => (
     <>
         <Graphics />
-        <Button>🔈 Play</Button>
+        <Button
+            style={{ position: "absolute", left: "50%", top: "50%" }}
+            onClick={() => alert("clicked")}>🔈 Play</Button>
     </>
 );

@@ -82,13 +82,18 @@ iframe {
 }
 
 img,
-svg {
+.graphics {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
+.graphics {
+  width: 100%;
+  height: 100%;
+}
+
 .reveal svg {
-  max-width: 95%;
-  max-height: 95%;
+  max-width: 95vw;
+  max-height: 95vh;
 }
 
 .row {
@@ -96,4 +101,10 @@ svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+// svg container
+.graphics {
+  position: relative;
+
 }
