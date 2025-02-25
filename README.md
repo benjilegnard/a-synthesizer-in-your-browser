@@ -22,19 +22,15 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
 - introduction
   - de quoi je vais parler
     - répète l'abstract.
-    - avertissement:
+      - Notes: avertissement:
       - on va parler de plein de trucs
       - donc accrochez vous
-    - il y'a deux types de conférences
-      - celle pour flatter l'ego du speaker et dire : moi je sais
-      - celles pour vous apprendre des trucs
-      - on va essayer de faire les deux
   - objectifs d'un side-project 
     - objectifs
       - apprendre 👨‍🎓
       - s'amuser 🤡
     - stack technique
-      - preact
+      - preact + signals
       - api web-audio
       - github actions
       - maths (déso)
@@ -43,22 +39,21 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
     - slide whoami
 
 - historique
-  - rapidos, la musique électronique, 1930's etc...
-  - KORG in japan
-  - moi et le ms-20
+  - araignées malades
   - tonton jean-pierre (RIP)
+  - moi et le ms-20
   - j'en ai un chez moi
   - démo/vidéo 
   - de quoi c'est fait ?
   - let's read the fucking manual
+  - blague : je lis le manuel
+    - l'important c'est que "ca colle" avec l'api webaudio, et mon side-project prend forme
 
 - la musique (intro à l'api webAudio)
   - la musique c'est le silence entre les notes (nietzche?)
   - c'est quoi le son ?
     - vibrations dans l'air
     - plus ou moins 5 volts (électrique)
-    - des basses dans la terre
-    - le feu dans ton cerveau
   - c'est quoi la musique ?
     - des fréquences
     - qui s'additionnent
@@ -70,11 +65,14 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
 
 - les features, et pourquoi "ça colle"
   - 1. features de l'api web-audio
-  - historique rapide
+  - historique rapide (OSEF)
   - principe, le contexte audio
   - le graphe de noeuds
   - les types de noeuds
-  - 2. features du KORG MS-20
+  - connection
+ 
+<!-- todo: regrouper avec conception, découpage dessous -->
+- 2. features du KORG MS-20
   - oscillateur 
     - une sinusoide
     - types de fréquences
@@ -83,8 +81,10 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
     - low pass filter 
   - enveloppe
     - asdr (passer rapidement, on y reviendra)
-  - modulation
+  - modulation de fréquence
   - conceptuellement, on a les billes , allonsy let's go
+
+<!-- maximum ici, 10 minutes -->
 
 - conception / découpage en modules
   - korg + visual interface
@@ -118,6 +118,13 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
   - machine à états locale au composant
   - comportement-driven-development
   - application sur les filtres
+- knob: avancé
+  - select vs input/range
+  - foutre en l'air sa conception initiale
+  - repartir à zéro
+  - knob a11y
+  - knob select
+  - knob range
 
 - gestion d'état
   - découpage statique/dynamique
@@ -132,6 +139,10 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
     - effects
     - audio-graph
   - state machine (pilot, pas allez trop loin là)
+  - interface vs state
+  - graphe audio = pas mon ui
+  - "paramétrage" = ma donnée
+  - dériver l'état vers le graphe audio = effect
 
 - la ci/cd
   - lint & tests
@@ -146,14 +157,6 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
   - filtres ++
   - démo 
 
-- knob v2: 
-  - select vs input/range
-  - foutre en l'air sa conception initiale
-  - repartir à zéro
-  - knob a11y
-  - knob select
-  - knob range
-
 - a11y
   - comment rendre ce bazar accessible?
   - solution: tout est backup par des composants du dom
@@ -164,12 +167,6 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
   - ici des maths lourds
   - fourier
   - section à supprimer si pas le temps
-
-- la gestion d'états (v2)
-  - interface vs state
-  - graphe audio = pas mon ui
-  - "paramétrage" = ma donnée
-  - dériver l'état vers le graphe audio = effect
 
 - le boss final : cable graphe
   - connections
