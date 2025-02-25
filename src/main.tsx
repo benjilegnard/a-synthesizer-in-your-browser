@@ -22,7 +22,8 @@ let deck = new Reveal({
 const components: Record<string, ComponentChild> = {
     "high-pass": <HighPass />,
     trigonometry: <Trigonometry />,
-    "sound-test": <SineSound />,
+    "sound-test-sine": <SineSound />,
+    "sound-test-noise": <NoiseSound />
 };
 
 deck

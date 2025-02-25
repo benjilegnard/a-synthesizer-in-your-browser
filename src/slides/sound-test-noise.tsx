@@ -6,12 +6,13 @@ import { useAudioContext } from "../hooks/use-audio-context.hook";
 
 let oscillator: OscillatorNode;
 let context: AudioContext;
+let whiteNoise: AudioBufferSourceNode;
 /**
  * Slide explaining what is sound in the air
  *
  * but caché, tester que le son fonctionne.
  */
-export const Sound = () => {
+export const NoiseSound = () => {
     const isPlaying = useSignal<boolean>(false);
     // const { context, play, pause } = useAudioContext();
 
@@ -19,26 +20,25 @@ export const Sound = () => {
         if (!isPlaying.value) {
             console.log("play");
             context = new AudioContext();
-            // create stuff
-            oscillator = context.createOscillator();
-            oscillator.type = "sine"
-            // oscillator.frequency.value = 440;
-            const real = new Float32Array(18);
-            const imag = new Float32Array(18);
-            for (let i = 0; i < 18; i++) {
-                real[i] = Math.random();
-                imag[i] = Math.random();
+            var bufferSize = 2 * context.sampleRate,
+                noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate),
+                output = noiseBuffer.getChannelData(0);
+            for (var i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
             }
-            oscillator.setPeriodicWave(context.createPeriodicWave(real, imag))
-            oscillator.start();
-            oscillator.connect(context.destination);
+
+            whiteNoise = context.createBufferSource();
+            whiteNoise.buffer = noiseBuffer;
+            whiteNoise.loop = true;
+            whiteNoise.start(0);
+            whiteNoise.connect(context.destination);
             //play();
         }
 
         if (isPlaying.value) {
             console.log("pause");
             // pause();
-            oscillator?.disconnect();
+            whiteNoise?.disconnect();
         }
         isPlaying.value = !isPlaying.value;
     }
