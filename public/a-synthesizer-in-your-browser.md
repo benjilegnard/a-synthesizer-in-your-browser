@@ -27,12 +27,14 @@ Notes:
 
 
 ### Stack Technique 
-- preact
-- api WebAudio
-- azure/github actions
-- faire "propre" quand même
+- ⚛️ preact (🚥 + signals)
+- 🔈 WebAudio
+- 🐙 github actions
+- ⚡ vite/vitest
 Notes:
-- c'est une excuse
+- faire "propre" quand même
+- c'est une excuse pour apprendre
+- on peut vouloir utiliser autre chose qu'angular
 
 
 ### Qui-suis,je ?
@@ -46,7 +48,7 @@ Notes:
 ## Histoire(s)
 
 
-## Jean-Pierre
+### Jean-Pierre
 <img src="/images/jean-pierre/araignées-malades-dans-la-cave-24.jpg" />
 Notes:
 - lui, c'est mon oncle Jean-pierre.
@@ -68,18 +70,14 @@ Notes:
 - ils ont un groupe et ils jouent dans les caves et quelques balles musettes du nord-pas de calais ou de la somme.
 
 
-### In memoriam (1956-2018)
-<img src="/images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
-
 
 ### Le KORG MS-20
 
 <img src="images/korg-official-photo.jpg" />
 Notes:
-- Le MS-20, sorti en 1978, c'est un synthétiseur, un clavier électrique
-- extrêmement populaire dans les années 80, il a un 
-// TODO, mettre l'intro side projet après l'histoire
-
+- Le MS-20, sorti en 1978, c'est un synthétiseur, un clavier monophonique (une seule note à la fois)
+- extrêmement populaire dans les années 80, grand public par rapport aux Moog et synthés existant
+- simple à utiliser
 
 
 
@@ -99,8 +97,23 @@ Auteur ?
 <div id="high-pass"></div>
 
 
+### Le son (pour un ordinateur)
+
+
 
 ## L'api WebAudio
+Notes:
+- pourquoi "ca colle, entre le synthé et ce projet)
+
+
+### Historique
+- Remember Flash ?
+- Draft Spec W3C en 2011
+- High-level en JS, impleme en C/Assembleur
+Notes:
+- avant cette api, il fallait des plugins externes
+- Premier brouillons de specs en 2011
+- Implémenté par google 
 
 
 ### Rigolo ?
@@ -163,51 +176,318 @@ const gain = new GainNode();
 ## Conception
 
 
+### korg + visual interface
 
-## Keyboard
+
+### korg + hack du cable panel (on le voit sur le synthé: c'est le meilleur manuel)
+
+
+### thinking in components : mon plan d'action
+
+
+### keyboard
+
+
+### knobs (oscillateurs et filtres)
+
+
+### patchboard
+
+
+
+## Le clavier
+
+Notes:
+- la partie la plus importante
+
+
+###  fréquences en entrée
+
+
+###  merci wikipedia (todo lien)
+
+
+###  demi-tons, touches noires-blanches
+
+
+###  events click
+
+
+###  décalage d'octave
+
+
+###  qui a la source de donnée sur la fréquence / la note ?
 
 
 
 ## Oscillateurs
 
 
+###  sinusoide / triangle / sawtooth
+
+
+###  fréquence + modificateurs
+
+
+###  code api webaudio
+
+
+###  mixer deux sources (GainNode)
+
+
+###  j'ai mis en place deux features, et c'est déjà le bordel
+
+
+
+## knob (potentiomètre)
+
+
+###  trigonométrie
+
+
+###  problématique de rotation, dans quel sens ?
+    - droite => réduire, gauche => augmenter ?
+    - ou bien calculer un angle ?
+
+
+###  ca a l'air simple, mais déjà plein d'events à gérer.
+
+
+###  machine à états locale au composant
+
+
+###  comportement-driven-development
+
+
+###  application sur les filtres
+
+
+## knob: avancé
+
+
+###  select vs input/range
+
+
+###  foutre en l'air sa conception initiale
+
+
+###  repartir à zéro
+
+
+###  knob a11y
+
+
+###  knob select
+
+
+###  knob range
+
+
+
+## gestion d'état
+
+
+###  découpage statique/dynamique
+
+
+###  différents types d'état 
+    - statique
+    - de l'interface
+    - du modèle de données (ici mon graphe audio)
+    - du serveur
+
+
+###  signals + computed + effect = win
+
+
+###  architecture en trois couche au final.
+    - interface
+    - effects
+    - audio-graph
+
+
+###  state machine (pilot, pas allez trop loin là)
+
+
+###  interface vs state
+
+
+###  graphe audio = pas mon ui
+
+
+###  "paramétrage" = ma donnée
+
+
+###  dériver l'état vers le graphe audio = effect
+
+
 
 ## Filtres
 
 
-
-## Générateurs d'enveloppe
-
+### Passe haut
 
 
-## Knobs
+### Passe bas
+
+
+### Nodes
+
+
+### peaks
+
+
+
+## la ci/cd
+
+
+###  lint & tests
+
+
+###  github actions
+
+
+###  pull-request => deploy sur staging
+
+
+###  tests reports
+
+
+###  c'est pas parce que c'est un side projet qu'on va se priver de bonne DX
+
+
+
+## Envelope generator
+
+
+###  revenons au schéma
+
+
+###  ASDR, attack sustain, release delay.
+
+
+###  filtres ++
+
+
+###  démo 
 
 
 
 ## Accessibilité
 
 
-
-## La gestion d'état
-
+###  comment rendre ce bazar accessible?
 
 
-## Le boss final
+###  solution: tout est backup par des composants du dom
 
 
-
-## Démo
-
+###  démo désactivation CSS
 
 
-## Bonus
+###  label, output, tester 
 
 
 
-## Conclusion
+## modulation de fréquences
 
-- Ayez des side-projects
-- Faites du code inutile
+
+###  ici des maths lourds
+
+
+###  fourier
+
+
+###  section à supprimer si pas le temps
+
+
+
+## le boss final : cable graphe
+
+
+###  connections
+
+
+###  moteur physique: parce que pourquoi pas ?
+
+
+###  matter.js 
+
+
+###  longueur du cable 
+
+
+###  machine a états
+
+
+
+## démo finale
+
+
+###  tout connecter!
+
+
+
+## bonus: 
+
+
+###  features non-présentées
+- settings et indexedb/pwa
+- events claviers
+- responsive (lol, faire une blague)
+
+
+###  reste à faire : 
+- WebMidi ?
+
+
+
+## conclusion / leçons
+Notes:
+- Comme dans plein de chose, il y a des lecons à tirer de cette avanture
+
+
+###  L'api webaudio
+Notes:
+- c'est un gros jouet, peu de cas d'usage en dehors de la synthèse sonore
+- Vraiment bizarre
+
+
+###  les gens sérieux
+- font du C (ou du zig) dans ce domaine
+- mais: on est là pour le fun
+Notes: 
+- pour des raisons de latence
+- javascript est assez versatile pour que ça passe
+
+
+### Ça n'empêche pas de 
+- faire du code "inutile"
+- faites de l'art inutile
+- faites de la musique
+
+
+### Gestion d'état
+- que vous le vous le vouliez ou non, vous aurez toujours besoin d'une librairie de..., ou de patterns de.., ou au minimum de penser à la __gestion d'état__.
+
+
+### Sens de réalisation
+
+- partir de l'interface finale ( ou des maquettes figma ), c'est le meilleur moyen de foirer vos devs front. Orienter sur la donnée.
+
+
+### Ce n'est pas grave
+- si vos side-projects prennent du temps
+- si ça n'avance pas
+
+
+### MVP
+- n'obsédez pas sur les détails
+- minimum viable product
+
+
+### Build in public
+- postuler à des sujets au conf, ca fout un coup de pression pour finirs ses side-projects.
 
 
 ### Side project
@@ -216,14 +496,39 @@ const gain = new GainNode();
 - Postuler à des confs.
 
 
+### Les sujets de niche
+- L'informatique c'est super-large
+- Tous les sujets sont "tech-isables"
+- Les portes sont ouvertes, il faut juste foncer dedans.
+
 ### Échecs
 - les knobs
+- pas fini dans les temps
+Notes:
+- C'est la meta-loi
 
 
 ### Succès ?
 - ce talk.
+- j'ai appris des trucs
+Notes:
+- peut-être que ca me servira jamais
+
+
+### Jean-Pierre Legrand (1956-2020)
+<img src="/images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
+Notes:
+- Pour finir, je voudrais dédicacer ce talk à Jean-Pierre
+- Merci de m'avoir légué ce synthé
+
+
+### Le bon coin
+// TODO image vente
+Notes:
+- si jamais ca vous intéresse d'avoir un gros synthé chez vous, je le revends.
 
 
 
 ## Merci
+
 // TODO qrcodes et slide de fin

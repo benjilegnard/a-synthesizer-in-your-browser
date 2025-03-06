@@ -118,6 +118,7 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
   - machine à états locale au composant
   - comportement-driven-development
   - application sur les filtres
+
 - knob: avancé
   - select vs input/range
   - foutre en l'air sa conception initiale
@@ -210,5 +211,5 @@ Mais aussi de technologies web : d'accessibilité, de composants (p)react, de ge
 - [L'api WebAudio](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 - [Tips and techniques for using the web audio API](https://medium.com/@danielmckemie/tips-and-techniques-for-using-the-web-audio-api-89b8beda6cf2)
 - [You don't need a library for state machines (davidkpiano)](https://dev.to/davidkpiano/you-don-t-need-a-library-for-state-machines-k7h)
-
+- [I don't know who the web audio api is designed for](https://blog.mecheye.net/2017/09/i-dont-know-who-the-web-audio-api-is-designed-for/)
 
