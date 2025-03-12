@@ -89,11 +89,19 @@ img,
 .graphics {
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
-.reveal svg {
-  max-width: 95vw;
-  max-height: 95vh;
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal svg,
+.reveal img,
+.reveal video {
+  max-width: 95%;
+  max-height: 95%;
+  margin: 0 auto;
 }
 
 .row {
@@ -107,4 +115,10 @@ img,
 .graphics {
   position: relative;
 
+}
+
+.reveal iframe {
+  border: none;
+  max-width: 100vw;
+  max-height: 100vh;
 }

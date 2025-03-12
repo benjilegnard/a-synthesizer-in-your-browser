@@ -11,7 +11,8 @@ import { HighPass } from "./slides/filter-high-pass";
 
 import { ComponentChild, render } from "preact";
 import { Trigonometry } from "./slides/trigonometry";
-import { Sound } from "./slides/sound-0-test";
+import { SineSound } from "./slides/sound-test-sine";
+import { NoiseSound } from "./slides/sound-test-noise";
 
 let deck = new Reveal({
     plugins: [Markdown, Notes, Highlight],
@@ -21,7 +22,7 @@ let deck = new Reveal({
 const components: Record<string, ComponentChild> = {
     "high-pass": <HighPass />,
     trigonometry: <Trigonometry />,
-    "sound-test": <Sound />,
+    "sound-test": <SineSound />,
 };
 
 deck

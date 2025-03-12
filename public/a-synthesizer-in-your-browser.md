@@ -50,7 +50,7 @@ Notes:
 
 ### Mon oncle Jean-Pierre
 
-<img src="/images/jean-pierre/araignées-malades-dans-la-cave-24.jpg" />
+<img src="/images/jean-pierre/araignées-malades-jean-pierre.jpg" />
 
 Notes:
 - lui, c'est mon oncle Jean-pierre.
@@ -62,21 +62,13 @@ Notes:
 
 ### Les araignées malades
 
-<img src="/images/jean-pierre/araignées-malades-dans-la-somme-12-juste-avant-le-départ-au-73.jpg" />
-
-
-<img src="/images/jean-pierre/araignées-malades-dans-la-somme-11-la-voiture-des-musiciens.jpg" />
+<img src="/images/jean-pierre/araignées-malades-combined.jpg" />
 
 Notes:
 - avec mon père, qui prends la photo ici.
 - ils ont un groupe et ils jouent dans les caves et quelques balles musettes du nord-pas de calais ou de la somme.
 - Stan Kogut-Kubiak à la basse
 - Daniel Wasilewski à la batterie
-
-
-### In memoriam (1956-2020)
-
-<img src="/images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
 
 
 ### Le KORG MS-20
@@ -86,6 +78,18 @@ Notes:
 - Le MS-20, sorti en 1978, c'est un synthétiseur, un clavier monophonique (une seule note à la fois)
 - extrêmement populaire dans les années 80, grand public par rapport aux Moog et synthés existant
 - simple à utiliser
+
+
+### Vidéo?
+
+// TODO
+
+
+### Idée bizarre ou idée de  génie ?
+Notes:
+- Du coup je me lance dans ce projet bizarre.
+- D'implémenter ce synthétiseur spécifiquement.
+- Et donc la première question, c'est comment on fait de la musique avec un ordinateur.
 
 
 
@@ -102,30 +106,40 @@ Notes:
 
 ### La musique c'est le silence entre les notes
 Claude Debussy
+
 Notes:
 - En vrai, il l'avait piqué à mozart
 
 
 ### Physiquement
 
-Vibration dans l'air => Vos Tympans
-<img src="images/memes/functions-describe-the-world.png"/>
+<img src="images/memes/sound-system-ryan-dunn.gif" style="width: 1280px"/>
+
+Notes:
+- Vibration dans l'air => Vos Tympans
+
+
+### Source:
+
+<img src="images/memes/sound-system-ryan-dunn-2.gif" style="width: 1280px"/>
+
+Notes:
+- sourcez tout.
 
 
 ### La musique, c'est des maths
 
-Benjamin Legrand (après trois bières)
-
 <img src="images/memes/functions-describe-the-world.png"/>
+
 Notes:
+- Moi après trois bière
 - Si vous connaissez pas cette vid elle est trop bien
 - Tout peut être décrit par une fonction mathématique
-- 
 
 
-### Pour un ordinateur
+### Le son, pour un ordinateur
 
-C'est un Array<number>
+C'est un `Array<number>`.
 ```typescript
 [0.52, 0.5, 0.3]
 ```
@@ -134,21 +148,33 @@ Notes:
 - todo
 
 
-### Un slide avec du tsx ?
-
-<div id="high-pass" class="graphics"></div>
-
-
-### Le son (pour un ordinateur)
-
-### Un slide avec du tsx ?
+### C'est un peu vague
 
 <div id="trigonometry" class="graphics"></div>
+Notes:
+- Pour faire une belle onde sonore,
+- dans ce talk on va parler de maths un peu donc les bases
 
 
 ### Un slide avec du tsx ?
 
-<div id="sound-test" class="graphics"></div>
+<div id="sound-test-sine" class="graphics"></div>
+
+
+### Faites du bruit
+
+Si je remplis un tableau de valeur aléatoires
+
+```typescript
+
+```
+
+
+### Faites du bruit (2)
+
+<div id="sound-test-noise" class="graphics"></div>
+Notes:
+- tout mes examples là dans mes slides, ils utilisent une API qui est disponible dans mes navigateurs
 
 
 
@@ -166,6 +192,12 @@ Notes:
 - Premier brouillons de specs en 2011
 - Implémenté par google 
 
+
+### Example de base.
+```typescript
+```
+Notes: 
+- ça
 
 ### Rigolo ?
 
@@ -490,6 +522,7 @@ Notes:
 
 ###  reste à faire : 
 - WebMidi ?
+- Signal en entrée.
 
 
 
