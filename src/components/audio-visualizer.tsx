@@ -8,6 +8,6 @@ interface AudioVisualizerProps {
 }
 
 /** Component to put in an svg to visualize sound */
-export const AudioVisualizer: FunctionComponent<AudioVisualizerProps> = ({ audioContext }) => {
+export const AudioVisualizer: FunctionComponent<AudioVisualizerProps> = () => {
     return <g></g>
 }

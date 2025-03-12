@@ -1,7 +1,6 @@
 import { Button } from "../components/button";
 import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
-import { useAudioContext } from "../hooks/use-audio-context.hook";
 
 let oscillator: OscillatorNode;
 let context: AudioContext;
@@ -12,7 +11,6 @@ let context: AudioContext;
  */
 export const SineSound = () => {
     const isPlaying = useSignal<boolean>(false);
-    // const { context, play, pause } = useAudioContext();
 
     const toggleSound = () => {
         if (!isPlaying.value) {

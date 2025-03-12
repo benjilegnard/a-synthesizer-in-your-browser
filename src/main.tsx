@@ -37,7 +37,7 @@ deck
         transition: "none",
         backgroundTransition: "none",
         history: true,
-        keyboard: { b: null },
+        keyboard: { b: null } as unknown as boolean,
     })
     .then(() => {
         // initialize preact components in slides
