@@ -5,6 +5,8 @@ lang: fr
 
 Une conférence sur comment j'ai échoué, puis réussi, une lecon de vie ( nan je déconnes, c'est une excuse pour parler de musique )
 
+Slides disponible en version web ici : <https://benjilegnard.github.io/a-synthesizer-in-your-browser/>
+
 ## Abstract
 
 ```markdown
