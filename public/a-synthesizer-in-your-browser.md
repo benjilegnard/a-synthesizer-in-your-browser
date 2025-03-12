@@ -50,7 +50,7 @@ Notes:
 
 ### Mon oncle Jean-Pierre
 
-<img src="/images/jean-pierre/araignées-malades-jean-pierre.jpg" />
+<img src="images/jean-pierre/araignées-malades-jean-pierre.jpg" />
 
 Notes:
 - lui, c'est mon oncle Jean-pierre.
@@ -62,7 +62,7 @@ Notes:
 
 ### Les araignées malades
 
-<img src="/images/jean-pierre/araignées-malades-combined.jpg" />
+<img src="images/jean-pierre/araignées-malades-combined.jpg" />
 
 Notes:
 - avec mon père, qui prends la photo ici.
@@ -254,46 +254,46 @@ Notes:
 <abbr title="Read The Fantastic Manual">R.T.F.M.</abbr>
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-01.png" />
+<img src="images/korg-docs/ms-20-owners-manual-01.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-02.png" />
+<img src="images/korg-docs/ms-20-owners-manual-02.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-03.png" />
+<img src="images/korg-docs/ms-20-owners-manual-03.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-04.png" />
+<img src="images/korg-docs/ms-20-owners-manual-04.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-05.png" />
+<img src="images/korg-docs/ms-20-owners-manual-05.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-06.png" />
+<img src="images/korg-docs/ms-20-owners-manual-06.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-07.png" />
+<img src="images/korg-docs/ms-20-owners-manual-07.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-08.png" />
+<img src="images/korg-docs/ms-20-owners-manual-08.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-09.png" />
+<img src="images/korg-docs/ms-20-owners-manual-09.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-10.png" />
+<img src="images/korg-docs/ms-20-owners-manual-10.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-11.png" />
+<img src="images/korg-docs/ms-20-owners-manual-11.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-12.png" />
+<img src="images/korg-docs/ms-20-owners-manual-12.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-13.png" />
+<img src="images/korg-docs/ms-20-owners-manual-13.png" />
 
 
-<img src="/images/korg-docs/ms-20-owners-manual-14.png" />
+<img src="images/korg-docs/ms-20-owners-manual-14.png" />
 
 
 ## Conception
@@ -656,14 +656,14 @@ Notes:
 
 
 ### Jean-Pierre Legrand (1956-2020)
-<img src="/images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
+<img src="images/jean-pierre/araignées-malades-dans-la-cave-09-jean-pierre.jpg" />
 Notes:
 - Pour finir, je voudrais dédicacer ce talk à Jean-Pierre
 - Merci de m'avoir légué ce synthé
 
 
 ### Le bon coin
-<img src="/images/memes/korg-on-ebay-japan.png" />
+<img src="images/memes/korg-on-ebay-japan.png" />
 Notes:
 - si jamais ca vous intéresse d'avoir un gros synthé chez vous, je le revends.
 - Juste pour vous donner une image de l'argus de ce genre de truc
