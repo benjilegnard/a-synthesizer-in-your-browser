@@ -159,6 +159,8 @@ Notes:
 ### Un slide avec du tsx ?
 
 <div id="sound-test-sine" class="graphics"></div>
+Notes:
+- tout mes examples là dans mes slides, ils utilisent une API qui est disponible dans mes navigateurs
 
 
 ### Faites du bruit
@@ -166,15 +168,23 @@ Notes:
 Si je remplis un tableau de valeur aléatoires
 
 ```typescript
-
+context = new AudioContext();
+const bufferSize = 2 * context.sampleRate;
+const noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate);
+const output = noiseBuffer.getChannelData(0);
+for (let i = 0; i < bufferSize; i++) {
+    output[i] = Math.random() * 2 - 1;
+}
 ```
+Notes:
+- Math.random() emphasize.
 
 
 ### Faites du bruit (2)
 
 <div id="sound-test-noise" class="graphics"></div>
 Notes:
-- tout mes examples là dans mes slides, ils utilisent une API qui est disponible dans mes navigateurs
+- parlons donc un peu de cette API.
 
 
 
@@ -190,23 +200,53 @@ Notes:
 Notes:
 - avant cette api, il fallait des plugins externes
 - Premier brouillons de specs en 2011
-- Implémenté par google 
+- Implémenté par google
+- codepen vers 2015 / 2016
 
 
 ### Example de base.
-```typescript
+
+```typescript[|2-3|4|5|6|7]
+if (window.AudioContext) {
+    context = new AudioContext();
+    oscillator = context.createOscillator();
+    oscillator.type = "sine";
+    oscillator.frequency.value = 440;
+    oscillator.start();
+    oscillator.connect(context.destination);
+}
 ```
-Notes: 
-- ça
+
+Notes:
+- ça c'est le code de mon slide avec la sinusoide
+
+
+### Des noeuds (au cerveau?)
+
+```
+OscillatorNode
+GainNode
+```
+<https://developer.mozilla.org/en-US/docs/Web/API/AudioNode>
+Notes:
+- api orientée object
+- AudioNode la super classe
+- plusieurs entrée / sortie
+- connect() / disconnect() + channels
+
+
+### graphe de routage audio
+
+// TODO schema
+
 
 ### Rigolo ?
 
 L'API est concue exactement comme on utiliserais un synthétiseur.
 
-```typescript
-const context = new AudioContext();
-const gain = new GainNode();
-```
+//TODO svg connect
+Notes:
+- maintenant qu'on a vu ça, revenons en détail sur le 
 
 
 ## Features du MS-20
@@ -282,15 +322,31 @@ const gain = new GainNode();
 
 Notes:
 - la partie la plus importante
-
+- Celle qui définit la note
 
 ###  fréquences en entrée
 
+`f = 1/t`
+Notes:
+- f
+
 
 ###  merci wikipedia (todo lien)
+<https://en.wikipedia.org/wiki/Piano_key_frequencies>
 
 
 ###  demi-tons, touches noires-blanches
+<img src="schemas/piano-keys.svg" />
+Notes:
+- Chiffre magique
+- Dans notre musqieu européenne
+
+
+### 1/12e 
+`$$ \sqrt[12]{2} $$`
+
+
+### Une boucle for
 
 
 ###  events click
@@ -607,9 +663,10 @@ Notes:
 
 
 ### Le bon coin
-// TODO image vente
+<img src="/images/memes/korg-on-ebay-japan.png" />
 Notes:
 - si jamais ca vous intéresse d'avoir un gros synthé chez vous, je le revends.
+- Juste pour vous donner une image de l'argus de ce genre de truc
 
 
 

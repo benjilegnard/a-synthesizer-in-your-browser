@@ -2,20 +2,20 @@ import "./style.scss";
 
 import "reveal.js/plugin/highlight/highlight.esm";
 
+import { ComponentChild, render } from "preact";
 import Reveal from "reveal.js";
 import Markdown from "reveal.js/plugin/markdown/markdown";
 import Notes from "reveal.js/plugin/notes/notes";
 import Highlight from "reveal.js/plugin/highlight/highlight";
+import RevealMath from "reveal.js/plugin/math/math";
 
 import { HighPass } from "./slides/filter-high-pass";
-
-import { ComponentChild, render } from "preact";
 import { Trigonometry } from "./slides/trigonometry";
 import { SineSound } from "./slides/sound-test-sine";
 import { NoiseSound } from "./slides/sound-test-noise";
 
 let deck = new Reveal({
-    plugins: [Markdown, Notes, Highlight],
+    plugins: [Markdown, Notes, Highlight, RevealMath.KaTeX],
 });
 
 
