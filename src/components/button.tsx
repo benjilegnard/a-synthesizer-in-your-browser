@@ -8,6 +8,7 @@ interface ButtonProps {
     style?: CSSProperties;
     onClick?: (event: MouseEvent) => void;
 }
+
 export const Button: FunctionalComponent<ButtonProps> = (props) => {
     const baseColor = colors.teal.hex;
     return (

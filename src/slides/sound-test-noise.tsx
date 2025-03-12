@@ -1,6 +1,7 @@
 import { Button } from "../components/button";
 import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
+import { PlayPauseButton } from "../components/play-pause";
 
 
 let context: AudioContext;
@@ -43,17 +44,12 @@ export const NoiseSound = () => {
 
     return (
         <>
-            <Button
-                style={{ position: "absolute", left: "50%", top: "50%" }}
-                onClick={toggleSound}>
-                {isPlaying.value ? (<span>⏹️ Stop</span>) : (<span> 🔈 Play</span>)}
-            </Button>
+            <PlayPauseButton
+                isPlaying={isPlaying.value}
+                onClick={toggleSound}
+            />
             <Graphics>
-                <g>
-                    {
-
-                    }
-                </g>
+                <g></g>
             </Graphics>
         </>
     )

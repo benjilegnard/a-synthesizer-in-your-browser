@@ -1,9 +1,10 @@
-import { Button } from "../components/button";
 import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
+import { PlayPauseButton } from "../components/play-pause";
 
 let oscillator: OscillatorNode;
 let context: AudioContext;
+
 /**
  * Slide explaining what is sound in the air
  *
@@ -33,14 +34,13 @@ export const SineSound = () => {
 
     return (
         <>
-            <Button
-                style={{ position: "absolute", left: "50%", top: "50%" }}
+            <PlayPauseButton
+                isPlaying={isPlaying.value}
                 onClick={toggleSound}
             >
-                {isPlaying.value ? (<span>⏹️ Stop</ span >) : (<span> 🔈 Play </span>)}
-            </Button>
-            < Graphics >
-                <g>{} </g>
+            </PlayPauseButton>
+            <Graphics>
+                <g>{}</g>
             </Graphics>
         </>
     );
