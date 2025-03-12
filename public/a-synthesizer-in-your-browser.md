@@ -146,11 +146,12 @@ C'est un `Array<number>`.
 
 Notes:
 - todo
+- on va plutôt utiliser des structures toutes faites pour ça. (Buffer)
 
 
 ### C'est un peu vague
-
-<div id="trigonometry" class="graphics"></div>
+<img src="schemas/trigonometry.svg" />
+<!-- <div id="trigonometry" class="graphics"></div>-->
 Notes:
 - Pour faire une belle onde sonore,
 - dans ce talk on va parler de maths un peu donc les bases
@@ -221,11 +222,52 @@ Notes:
 - ça c'est le code de mon slide avec la sinusoide
 
 
+### AudioNode
+<img src="images/schemas/audio-node-class-diagram.png" />
+
+Notes:
+- ça hérite d'EventTarget, parce qu'on peut lancer des événements.
+```mermaid
+classDiagram
+    EventTarget <|-- AudioNode
+    AudioNode <|-- PannerNode
+    AudioNode <|-- GainNode
+    AudioNode <|-- OscillatorNode
+    AudioNode <|-- AudioBufferSourceNode
+    AudioNode <|-- MediaElementSourceNode
+    class AudioNode{
+      +number channelCount
+      +number numberOfInputs
+      +number numberOfOutputs
+      +connect()
+      +disconnect()
+    }
+```
+
+
 ### Des noeuds (au cerveau?)
 
 ```
-OscillatorNode
+AnalyzerNode
+AudioBufferSourceNode
+AudioWorkletNode
+BiquadFilterNode
+ChannelMergerNode
+ChannelSplitterNode
+ConstantSourceNode
+ConvolverNode
+DelayNode
+DynamicsCompressorNode
 GainNode
+GainNode
+IIRFilterNode
+MediaElementAudioSourceNode
+MediaStreamAudioDestinationNode
+MediaStreamAudioSourceNode
+OscillatorNode
+PannerNode
+StereoPannerNode
+WaveShaperNode
 ```
 <https://developer.mozilla.org/en-US/docs/Web/API/AudioNode>
 Notes:
@@ -246,7 +288,7 @@ L'API est concue exactement comme on utiliserais un synthétiseur.
 
 //TODO svg connect
 Notes:
-- maintenant qu'on a vu ça, revenons en détail sur le 
+- maintenant qu'on a vu ça, revenons en détail sur le MS-20
 
 
 ## Features du MS-20
@@ -301,6 +343,8 @@ Notes:
 
 ### korg + visual interface
 
+Notes:
+- Ce qui est bien avec le 
 
 ### korg + hack du cable panel (on le voit sur le synthé: c'est le meilleur manuel)
 
@@ -324,11 +368,13 @@ Notes:
 - la partie la plus importante
 - Celle qui définit la note
 
+
 ###  fréquences en entrée
 
-`f = 1/t`
+`$$ f=\frac1{T} $$`
 Notes:
-- f
+- f = le nombre de fois par seconde ou une période arrive
+- en Hertz
 
 
 ###  merci wikipedia (todo lien)
@@ -339,11 +385,18 @@ Notes:
 <img src="schemas/piano-keys.svg" />
 Notes:
 - Chiffre magique
-- Dans notre musqieu européenne
+- Dans notre musique européenne (ethno-centrisme)
+- l'espace entre chaque note est un "demi-ton"
 
 
-### 1/12e 
-`$$ \sqrt[12]{2} $$`
+### Nombre magique
+`$$ \sqrt[12]{2} $$`<!-- .element: class="fragment" -->
+`$$ 2^{1/12} $$`<!-- .element: class="fragment" -->
+`$$ 1,0594631 $$`<!-- .element: class="fragment" -->
+Notes:
+- twelvth root of 2 / racine douzième de deu
+- ou 2 puissance 1/12e
+- nombre magique
 
 
 ### Une boucle for
@@ -423,26 +476,26 @@ Notes:
 
 
 
-## gestion d'état
+## Gestion d'état
 
 
 ###  découpage statique/dynamique
 
 
 ###  différents types d'état 
-    - statique
-    - de l'interface
-    - du modèle de données (ici mon graphe audio)
-    - du serveur
+- statique
+- de l'interface
+- du modèle de données (ici mon graphe audio)
+- du serveur
 
 
 ###  signals + computed + effect = win
 
 
 ###  architecture en trois couche au final.
-    - interface
-    - effects
-    - audio-graph
+- interface
+- effects
+- audio-graph
 
 
 ###  state machine (pilot, pas allez trop loin là)
@@ -640,6 +693,7 @@ Notes:
 - L'informatique c'est super-large
 - Tous les sujets sont "tech-isables"
 - Les portes sont ouvertes, il faut juste foncer dedans.
+
 
 ### Échecs
 - les knobs

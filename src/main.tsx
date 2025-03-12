@@ -34,6 +34,7 @@ deck
         showSlideNumber: "speaker",
         hashOneBasedIndex: true,
         hash: true,
+        pause: false,
         transition: "none",
         backgroundTransition: "none",
         history: true,
