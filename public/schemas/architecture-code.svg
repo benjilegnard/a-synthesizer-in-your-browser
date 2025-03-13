@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1280"
+   height="720"
+   viewBox="0 0 1280 720"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="architecture-code.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="0.78127806"
+     inkscape:cx="510.06168"
+     inkscape:cy="412.1452"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg5">
+    <inkscape:grid
+       type="xygrid"
+       id="grid238" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="marker15437"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow3"
+       markerWidth="4.2071066"
+       markerHeight="7"
+       viewBox="0 0 4.2071068 7"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         id="path15435"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow3"
+       markerWidth="4.2071066"
+       markerHeight="7"
+       viewBox="0 0 4.2071068 7"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         id="arrow3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+  </defs>
+  <rect
+     style="fill:#11111b;stroke-width:7.55906;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:10"
+     id="background"
+     width="1280"
+     height="720"
+     x="0"
+     y="0"
+     sodipodi:insensitive="true" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1" />
+  <rect
+     style="fill:#11111b;stroke:#fab387;stroke-width:2.20942;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:10;stroke-dasharray:none"
+     id="rect455"
+     width="239.5835"
+     height="670.14722"
+     x="34.252079"
+     y="25.289526" />
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="82.097054"
+     y="78.652176"
+     id="text15063"><tspan
+       sodipodi:role="line"
+       id="tspan15061"
+       x="82.097054"
+       y="78.652176"
+       style="fill:#fab387">UI</tspan></text>
+  <rect
+     style="fill:none;stroke:#a6e3a1;stroke-width:3;stroke-dasharray:none"
+     id="rect15169"
+     width="359.32767"
+     height="665.64166"
+     x="462.79807"
+     y="33.058525" />
+  <rect
+     style="fill:none;stroke:#89dceb;stroke-width:2.66746;stroke-dasharray:none"
+     id="rect15223"
+     width="254.35843"
+     height="664.72369"
+     x="984.52332"
+     y="31.147608" />
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="483.17264"
+     y="70.372475"
+     id="text15227"><tspan
+       sodipodi:role="line"
+       id="tspan15225"
+       x="483.17264"
+       y="70.372475"
+       style="fill:#a6e3a1">STATE</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="1020.2334"
+     y="74.99231"
+     id="text15231"><tspan
+       sodipodi:role="line"
+       id="tspan15229"
+       x="1020.2334"
+       y="74.99231"
+       style="fill:#94e2d5">AUDIO-GRAPH</tspan></text>
+  <rect
+     style="fill:none;stroke:#a6e3a1;stroke-width:3;stroke-dasharray:none"
+     id="rect15285"
+     width="311.41882"
+     height="173.69876"
+     x="485.57727"
+     y="90.691528" />
+  <rect
+     style="fill:none;stroke:#a6e3a1;stroke-width:3;stroke-dasharray:none"
+     id="rect15285-7"
+     width="311.41882"
+     height="173.69876"
+     x="485.57727"
+     y="296.69678" />
+  <rect
+     style="fill:none;stroke:#a6e3a1;stroke-width:3;stroke-dasharray:none"
+     id="rect15285-4"
+     width="311.41882"
+     height="173.69876"
+     x="485.57727"
+     y="501.96927" />
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="51.543152"
+     y="171.65884"
+     id="text15381"><tspan
+       sodipodi:role="line"
+       id="tspan15379"
+       x="51.543152"
+       y="171.65884">OscillatorPanel</tspan><tspan
+       sodipodi:role="line"
+       x="51.543152"
+       y="204.99222"
+       id="tspan15383">EnveloppePanel</tspan><tspan
+       sodipodi:role="line"
+       x="51.543152"
+       y="238.32559"
+       id="tspan15385" /></text>
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="519.01135"
+     y="125.86548"
+     id="text15389"><tspan
+       sodipodi:role="line"
+       id="tspan15387"
+       x="519.01135"
+       y="125.86548"
+       style="fill:#cdd6f4">signal()</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="518.04138"
+     y="329.20819"
+     id="text15393"><tspan
+       sodipodi:role="line"
+       id="tspan15391"
+       x="518.04138"
+       y="329.20819"
+       style="fill:#cdd6f4">computed()</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins"
+     x="518.86633"
+     y="542.91553"
+     id="text15397"><tspan
+       sodipodi:role="line"
+       id="tspan15395"
+       x="518.86633"
+       y="542.91553"
+       style="fill:#cdd6f4">effect()</tspan></text>
+  <path
+     style="display:inline;fill:none;fill-rule:evenodd;stroke:#cdd6f4;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker15437)"
+     d="M 269.76031,362.92197 513.45656,161.16921"
+     id="path15399"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#cdd6f4;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow3)"
+     d="m 640.13701,245.67118 1.27995,63.64271"
+     id="path15401"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#cdd6f4;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow3)"
+     d="m 636.51714,452.80874 -5.08982,68.13255"
+     id="path15403"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#cdd6f4;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow3)"
+     d="m 778.96202,595.38362 248.74608,-195.073"
+     id="path15405"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0" />
+</svg>

@@ -29,7 +29,9 @@ Par ordre d'apparition dans les slides:
 - Sound System Wind meme : Ryan gumm, Jackass 3 - Jet Engine Stunt <https://www.youtube.com/watch?v=lEFx1qmW4ts>
 - Vidéo "Functions describe the world" : On Mathematical Maturity - Thomas Garrity <https://www.youtube.com/watch?v=zHU1xH6Ogs4>
 - Illustration Onde Sinuosidale <https://en.wikipedia.org/wiki/Sine_wave>
-
+- Modular Synth <https://www.thomann.de/blog/en/modular-synthesizers-explained-simply/>
+- Oscilloscope: <https://www.reddit.com/r/electronics/comments/axiktz/1970s_tektronix_465_oscilloscope/>
+- Large Scary Maths symbol tweet from Freya Holmer <https://x.com/FreyaHolmer/status/1436696408506212353>
 
 ## Plan
 

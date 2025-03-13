@@ -29,6 +29,7 @@ Notes:
 ### Stack Technique 
 - ⚛️ preact (🚥 + signals)
 - 🔈 WebAudio
+- 🐼 PandaCSS
 - 🐙 github actions
 - ⚡ vite/vitest
 Notes:
@@ -81,9 +82,8 @@ Notes:
 - simple à utiliser
 
 
-### Vidéo?
-
-// TODO
+### J'en ai un chez moi
+<img src="images/benjilegnard-korg.png"/>
 Notes:
 - Je l'ai chez moi
 - J'ai grandi avec, j'ai découvert la synthèse sonore et la musique électronique avec.
@@ -146,8 +146,8 @@ Notes:
 
 
 ### En électricité analogique
-
-- Un signal alternatif de + ou - 5 volts
+<img src="images/oscilloscope.png" />
+Un signal alternatif de + ou - 5 volts
 Notes:
 - le courant va dans un sens, puis dans l'autre
 - le korg ms-20 utilise ça, 100% analogique, pas d'électronique
@@ -159,7 +159,7 @@ Notes:
 
 C'est un tableau de chiffres. `Array<number>`.
 ```typescript
-[0.52, 0.5, 0.3]
+[0.52, 0.5, 0.342, -0.342, -0.5]
 ```
 
 Notes:
@@ -180,7 +180,7 @@ Notes:
 <div id="sound-test-sine" class="graphics"></div>
 Notes:
 - tout mes examples là dans mes slides, ils utilisent une API qui est disponible dans mes navigateurs
-- 
+- l'api WebAudio
 
 
 ### Faites du bruit
@@ -214,14 +214,21 @@ Notes:
 
 
 ### Historique
-- Remember Flash ? 🪦
 - Draft Spec W3C en 2011 📆
-- High-level en JS, implementation en C/C++/Assembleur
+- Remember Flash ? 🪦
+- High-level en JS
+- implementation en C/C++/Assembleur
 Notes:
 - avant cette api, il fallait des plugins externes
 - Premier brouillons de specs en 2011
 - Implémenté par google en premier
 - codepen vers 2015 / 2016
+
+
+### Baseline
+<img src="images/caniuse-webaudio.png"/>
+Notes:
+- Supporté par tous les navigateurs principaux
 
 
 ### Example de base.
@@ -240,10 +247,11 @@ if (window.AudioContext) {
 Notes:
 - ça c'est le code de mon slide avec la sinusoide
 - on crée un contexte, puis un oscillateur, on lui assigne une fréquence, et on la connecte à la sortie.
+- la méthode createOscillator, elle va créer un objet OscillatorNode();
 
 
 ### AudioNode
-<img src="images/schemas/audio-node-class-diagram.png" />
+<img src="schemas/audio-node-class-diagram.png" />
 
 Notes:
 - ce qu'on manipule dans cette API c'est des noeuds.
@@ -298,18 +306,29 @@ Notes:
 - mon synth il est mono, donc déjà : un seul channel, tout ce qui est stéréo, on oublie
 
 
-### graphe de routage audio
-
-// TODO schema
+### Graphe de routage audio (example)
+<img src="schemas/audio-routing-graph.svg" />
 Notes:
 - tous ces noeuds dans mon code, on va les relier, et faire un graphe dirigé
+- connect() / disconnect()
+
+
+### connect() / disconnect()
+```typescript
+const context = new AudioContext();
+const oscillator = context.createOscillator();
+const gain = context.createGainNode();
+oscillator.connect(gain);
+gain.connect(context.destination);
+```
 
 
 ### Rigolo ?
 
-L'API est concue exactement comme on utiliserais un synthétiseur.
+<img src="images/modular-synth.png" />
 
-//TODO illustration synth modulaire
+L'API est concue exactement comme on utiliserais un synthétiseur modulaire.
+
 Notes:
 - maintenant qu'on a vu ça, revenons en détail sur le MS-20
 
@@ -318,6 +337,8 @@ Notes:
 ## Features du MS-20
 
 <abbr title="Read The Fantastic Manual">R.T.F.M.</abbr>
+Notes:
+- et sérieusement, lisez la doc
 
 
 <img src="images/korg-docs/ms-20-owners-manual-01.png" />
@@ -362,27 +383,43 @@ Notes:
 <img src="images/korg-docs/ms-20-owners-manual-14.png" />
 
 
+
 ## Conception
 
 
-### korg + visual interface
+### Visual interface
+<img src="images/korg-components-cutting-base.svg" />
 
 Notes:
-- Ce qui est bien avec le 
-
-### korg + hack du cable panel (on le voit sur le synthé: c'est le meilleur manuel)
+- Ce qui est bien avec le korg, c'est qu'il montre visuellement comment les choses fonctionnent ou s'utilisent / meilleur type d'UI
 
 
-### thinking in components : mon plan d'action
+### Penser en composants
+
+<img src="schemas/korg-components-cutting.svg" />
 
 
-### keyboard
+### Moar components, MOAR.
+
+<img src="schemas/korg-components-cutting-moar.svg" />
+Notes:
+- en bout de chaine et en tout petit, on a des composants réutilisables
 
 
-### knobs (oscillateurs et filtres)
+### UI
+<img src="schemas/korg-components-map.svg" />
+
+layout / containers / presentational
 
 
-### patchboard
+### Masonry ?
+- css masonry, fait exactement ce qu'on veut
+- css grid pour avoir plus de souplesse sur l'alignement responsive des parties
+- flex pour le reste
+// TODO code example
+Notes:
+- Bon, maintenant qu'on a 
+- évidemment, on va commencer par le plus important.
 
 
 
@@ -390,23 +427,29 @@ Notes:
 
 Notes:
 - la partie la plus importante
-- Celle qui définit la note
+- Celle qui définit la note, la fréquence de mon son.
 
 
-###  fréquences en entrée
+### Fréquence en entrée
 
 `$$ f=\frac1{T} $$`
 Notes:
+- juste un rappel sur les Hertz / Fréquences
 - f = le nombre de fois par seconde ou une période arrive
 - en Hertz
+- Donc première quesion, comment je trouve la fréquence d'une touche.
 
 
-###  merci wikipedia (todo lien)
+### Merci wikipedia
+<div class="graphics" style="overflow-y: scroll;">
+    <img src="images/wikipedia-piano-key-frequencies.png" style="max-width: unset;max-height: unset;"/>
+</div>
+
 <https://en.wikipedia.org/wiki/Piano_key_frequencies>
 
 
-###  demi-tons, touches noires-blanches
-<img src="schemas/piano-keys.svg" />
+### Demi-tons, touches noires-blanches
+<img src="schemas/piano-keys-octave.svg" />
 Notes:
 - Chiffre magique
 - Dans notre musique européenne (ethno-centrisme)
@@ -423,47 +466,255 @@ Notes:
 - nombre magique
 
 
+### Calcul des fréquences
+<img src="schemas/piano-keys-semitones.svg" />
+Notes:
+- Grâce à ça, on calcule
+
+
+### Décalage d'octaves
+<img src="schemas/piano-keys-octave.svg" />
+Notes:
+- Vu qu'on peut calculer.
+- 12 semitons par octaves = puissance de deux.
+
+
+### Décalage d'octaves
+<img src="schemas/piano-keys-octave-division.svg" />
+
+
+### Un octave de base
+
+```typescript
+const keysTemplate: string[] = [
+	"C",
+	"C♯/D♭",
+	"D",
+	"D♯/E♭",
+	"E",
+	"F",
+	"F♯/G♭",
+	"G",
+	"G♯/A♭",
+	"A",
+	"A♯/B♭",
+	"B",
+];
+```
+
+
+### Répété 3 fois
+
+```typescript
+const keys = [
+	...keysTemplate.map((note) => `${note}1`),
+	...keysTemplate.map((note) => `${note}2`),
+	...keysTemplate.map((note) => `${note}3`),
+	...keysTemplate.map((note) => `${note}4`),
+];
+```
+
+
+### Puis on assigne la fréquence
+```typescript[|1|2-3|7-18|5,9-11|13-17]
+export const TWELFTH_ROOT_OF_TWO = Math.pow(2, 1 / 12);
+// A 440 to the closest C is 9 semitone
+const startingNote = 440 - 9 * TWELFTH_ROOT_OF_TWO;
+
+let previousFrequency = startingNote;
+
+const createKeysArray = (): KeyValues[] => keys.map((keyName) => {
+
+	const blackOrWhite = keyName.includes("/");
+	const currentFrequency = previousFrequency * TWELFTH_ROOT_OF_TWO;
+	previousFrequency = currentFrequency;
+
+	return {
+		color: blackOrWhite ? "black" : "white",
+		note: keyName,
+		freq: currentFrequency,
+	};
+});
+```
+
+
+### La donnée
+```typescript
+interface KeyProps {
+	color: "black" | "white";
+	note: string;
+	freq: number;
+}
+```
+Notes:
+- j'ai donc un tableau avec cet objet pour chaque touche
+
+
 ### Une boucle for
+`keyboard.tsx`
+```typescript
+export const Keyboard = () => {
+	const keyValues = useMemo(() => createKeysArray(), []);
+	return (<div>
+		{keyValues.map((key) => (
+			<Key color={key.color} note={key.note} freq={key.freq}></Key>
+		))}
+	</div>
+	)
+};
+```
+Notes:
+- Au final mon composant clavier, ca devient une simple boucle for, qui va passer des infos au composant "Touche"
+- je crée ma donnée dans un useMemo pour éviter les re-rendus (fonction component, appelé constamment)
+- preact
 
 
-###  events click
+### Events click
+`key.tsx`
+```typescript
+export const Key = (props: KeyProps) => {
+	return (
+		<button
+            class={props.color}
+			name="key"
+			type="button"
+			value={props.freq}
+			title={props.note}
+			onClick={() => {
+                oscillator.frequency.value = props.freq
+            }}
+		>
+			{props.note}
+		</button>
+	);
+};
+```
 
 
-###  décalage d'octave
+### Position en CSS
+- décalage / position absolute pour les noires
+- relative pour les blanches 
+(TODO code example)
 
 
-###  qui a la source de donnée sur la fréquence / la note ?
+### Bon.
+- jusqu'ici tout va bien, c'est joli, mais ça fait rien
+Notes:
+- ce qui va créé du son,
 
 
 
 ## Oscillateurs
 
 
-###  sinusoide / triangle / sawtooth
+### sinusoide / triangle / sawtooth
+- les types d'ondes sonores
 
 
-###  fréquence + modificateurs
+### API
+`OscillatorNode`
+- frequency
+- detune
+- type 
 
 
-###  code api webaudio
+### Fréquence + modificateurs
+- potard "échelle"
+Notes:
+ça abaisse l'octave
 
 
-###  mixer deux sources (GainNode)
+### Mixer deux sources (GainNode)
+```typescript[|3-4|6-7|9|]
+export const audioContext = new AudioContext();
+
+export const oscillator1Node = audioContext.createOscillator();
+export const oscillator2Node = audioContext.createOscillator();
+
+export const oscillator1GainNode = audioContext.createGain();
+export const oscillator2GainNode = audioContext.createGain();
+
+export const output = audioContext.destination;
+
+oscillator1Node.connect(oscillator1GainNode);
+oscillator2Node.connect(oscillator2GainNode);
+
+oscillator1GainNode.connect(output);
+oscillator2GainNode.connect(output);
+
+oscillator1Node.start();
+oscillator2Node.start();
+```
 
 
-###  j'ai mis en place deux features, et c'est déjà le bordel
+### Code api webaudio
+- ne supporte que destypes d'ondes "triangle", "sine", "rectangle" et "sawtooth"
+- type custom : nécéssite de fournir une 
+// TODO pulse-wave interactive slide
 
 
 
-## knob (potentiomètre)
+### Transformation de fourier.
+`$$ x(t) = A \frac{\tau}{T} + \frac{2A}{\pi} \sum_{n=1}^{\infty} \left(\frac{1}{n} \sin\left(\pi n\frac{\tau}{T}\right) \cos\left(2\pi nft\right)\right) $$`
+
+<https://en.wikipedia.org/wiki/Pulse_wave>
+Notes:
+- donc là, je pleure, je me roule en boule sur le sol et j'arrête le projet
+- pas merci wikipedia
+
+
+### Scary Math Symbols
+<img src="images/memes/freya-holmer-scary-math-symbols.png" style="max-height: 60vh"/>
+
+
+### PeriodicWave
+```typescript
+// todo code sample
+```
+
+
+### J'ai mis en place deux features, et c'est déjà le bordel
+- //TODO illustration spaghetti.
+- problèmes : mon composant clé de clavier commande directement l'oscillateur
+- n'a pas connaissance de l'échelle ou des boutons de 
+
+
+### Qui a la source de donnée sur la fréquence / la note ?
+- source unique de vérité ?
+
+### Signals et gestion d'état
+```typescript
+const counter = signal(0);
+
+const oddOrEven = computed(() => counter.value % 2 ? "odd" : "event");
+
+effect(()=>{console.log(oddOrEvent)})
+```
+
+
+### Adapté à mon problème
+```typescript
+const currentFrequency = signal(440);
+const oscillator1Scale = signal<1|2|4|8|16>(2);
+
+const oscillator1Frequency = computed(() => {});
+```
+
+
+
+
+## Les potentiomètres
+le truc rond, là.
 
 
 ###  trigonométrie
+<img src="schemas/trigonometry.svg"/>
 
 
 ###  problématique de rotation, dans quel sens ?
-    - droite => réduire, gauche => augmenter ?
-    - ou bien calculer un angle ?
+
+- droite => réduire, gauche => augmenter ?
+- ou bien calculer un angle ?
 
 
 ###  ca a l'air simple, mais déjà plein d'events à gérer.
@@ -503,20 +754,20 @@ Notes:
 ## Gestion d'état
 
 
-###  découpage statique/dynamique
+### découpage statique/dynamique
 
 
-###  différents types d'état 
+### différents types d'état 
 - statique
 - de l'interface
 - du modèle de données (ici mon graphe audio)
 - du serveur
 
 
-###  signals + computed + effect = win
+### signals + computed + effect = win
 
 
-###  architecture en trois couche au final.
+### architecture en trois couche au final.
 - interface
 - effects
 - audio-graph
