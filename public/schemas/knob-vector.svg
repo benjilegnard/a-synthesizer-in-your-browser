@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   sodipodi:docname="knob-left-right.svg"
+   sodipodi:docname="knob-vector.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="0.78127807"
-     inkscape:cx="652.13657"
-     inkscape:cy="262.39057"
+     inkscape:zoom="0.78658397"
+     inkscape:cx="666.80738"
+     inkscape:cy="382.66734"
      inkscape:window-width="1900"
      inkscape:window-height="1025"
      inkscape:window-x="0"
@@ -99,15 +99,24 @@
      cy="360"
      r="160" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#a6e3a1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow3)"
-     d="M 560,460 H 120"
+     style="fill:none;fill-rule:evenodd;stroke:#a6e3a1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow3)"
+     d="M 620,360 V 120"
      id="path2393"
      inkscape:connector-type="polyline"
-     inkscape:connector-curvature="0" />
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#89dceb;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1);stroke-dasharray:none"
-     d="m 660,460 h 400"
+     style="fill:none;fill-rule:evenodd;stroke:#f9e2af;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1)"
+     d="M 860,360 H 620 L 860,120"
      id="path4864"
      inkscape:connector-type="polyline"
-     inkscape:connector-curvature="0" />
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#f38ba8;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+     d="M 280,340 C 259.36365,225.31847 889.06107,-88.561719 1000,260"
+     id="path30709"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
 </svg>

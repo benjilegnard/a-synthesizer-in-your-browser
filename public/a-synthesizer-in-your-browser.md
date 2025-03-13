@@ -35,6 +35,7 @@ Notes:
 - faire "propre" quand même
 - c'est une excuse pour apprendre
 - on peut vouloir utiliser autre chose qu'angular
+- sortir de mes compétences
 
 
 ### Qui-suis,je ?
@@ -83,9 +84,13 @@ Notes:
 ### Vidéo?
 
 // TODO
+Notes:
+- Je l'ai chez moi
+- J'ai grandi avec, j'ai découvert la synthèse sonore et la musique électronique avec.
 
 
 ### Idée bizarre ou idée de  génie ?
+- "ça colle"
 Notes:
 - Du coup je me lance dans ce projet bizarre.
 - D'implémenter ce synthétiseur spécifiquement.
@@ -109,6 +114,7 @@ Claude Debussy
 
 Notes:
 - En vrai, il l'avait piqué à mozart
+- mais bref.
 
 
 ### Physiquement
@@ -131,21 +137,33 @@ Notes:
 
 <img src="images/memes/functions-describe-the-world.png"/>
 
+[On Mathematical Maturity - Thomas Garrity](https://www.youtube.com/watch?v=zHU1xH6Ogs4)<!--.element class="source" -->
+
 Notes:
 - Moi après trois bière
-- Si vous connaissez pas cette vid elle est trop bien
+- Si vous connaissez pas cette vid elle est trop bien, Introduction à un cours de mathématiques
 - Tout peut être décrit par une fonction mathématique
+
+
+### En électricité analogique
+
+- Un signal alternatif de + ou - 5 volts
+Notes:
+- le courant va dans un sens, puis dans l'autre
+- le korg ms-20 utilise ça, 100% analogique, pas d'électronique
+- quand vous branchez des enceintes à une chaine hi-fi, tout ça.
+- pour un ordinateur, maintenant, c'est quoi ? 
 
 
 ### Le son, pour un ordinateur
 
-C'est un `Array<number>`.
+C'est un tableau de chiffres. `Array<number>`.
 ```typescript
 [0.52, 0.5, 0.3]
 ```
 
 Notes:
-- todo
+- ok je simplifie à l'extrême -1 : 1
 - on va plutôt utiliser des structures toutes faites pour ça. (Buffer)
 
 
@@ -153,15 +171,16 @@ Notes:
 <img src="schemas/trigonometry.svg" />
 <!-- <div id="trigonometry" class="graphics"></div>-->
 Notes:
-- Pour faire une belle onde sonore,
+- Pour faire une belle onde sonore, on fait une sinusoîdale
 - dans ce talk on va parler de maths un peu donc les bases
 
 
-### Un slide avec du tsx ?
+### Une onde sinusoîdale à 440Hz ?
 
 <div id="sound-test-sine" class="graphics"></div>
 Notes:
 - tout mes examples là dans mes slides, ils utilisent une API qui est disponible dans mes navigateurs
+- 
 
 
 ### Faites du bruit
@@ -195,13 +214,13 @@ Notes:
 
 
 ### Historique
-- Remember Flash ?
-- Draft Spec W3C en 2011
-- High-level en JS, impleme en C/Assembleur
+- Remember Flash ? 🪦
+- Draft Spec W3C en 2011 📆
+- High-level en JS, implementation en C/C++/Assembleur
 Notes:
 - avant cette api, il fallait des plugins externes
 - Premier brouillons de specs en 2011
-- Implémenté par google
+- Implémenté par google en premier
 - codepen vers 2015 / 2016
 
 
@@ -220,13 +239,18 @@ if (window.AudioContext) {
 
 Notes:
 - ça c'est le code de mon slide avec la sinusoide
+- on crée un contexte, puis un oscillateur, on lui assigne une fréquence, et on la connecte à la sortie.
 
 
 ### AudioNode
 <img src="images/schemas/audio-node-class-diagram.png" />
 
 Notes:
+- ce qu'on manipule dans cette API c'est des noeuds.
 - ça hérite d'EventTarget, parce qu'on peut lancer des événements.
+- AudioNode la super classe
+- plusieurs entrée / sortie
+- connect() / disconnect() + channels
 ```mermaid
 classDiagram
     EventTarget <|-- AudioNode
@@ -259,7 +283,6 @@ ConvolverNode
 DelayNode
 DynamicsCompressorNode
 GainNode
-GainNode
 IIRFilterNode
 MediaElementAudioSourceNode
 MediaStreamAudioDestinationNode
@@ -271,24 +294,25 @@ WaveShaperNode
 ```
 <https://developer.mozilla.org/en-US/docs/Web/API/AudioNode>
 Notes:
-- api orientée object
-- AudioNode la super classe
-- plusieurs entrée / sortie
-- connect() / disconnect() + channels
+- vous inquiètez pas on va pas tous les faire
+- mon synth il est mono, donc déjà : un seul channel, tout ce qui est stéréo, on oublie
 
 
 ### graphe de routage audio
 
 // TODO schema
+Notes:
+- tous ces noeuds dans mon code, on va les relier, et faire un graphe dirigé
 
 
 ### Rigolo ?
 
 L'API est concue exactement comme on utiliserais un synthétiseur.
 
-//TODO svg connect
+//TODO illustration synth modulaire
 Notes:
 - maintenant qu'on a vu ça, revenons en détail sur le MS-20
+
 
 
 ## Features du MS-20
@@ -518,10 +542,10 @@ Notes:
 
 
 ### Passe haut
-
+<img src="schemas/high-pass-low-pass.svg"/>
 
 ### Passe bas
-
+<img src="schemas/high-pass-low-pass.svg"/>
 
 ### Nodes
 
@@ -616,26 +640,25 @@ Notes:
 ## démo finale
 
 
-###  tout connecter!
-
 
 
 ## bonus: 
 
 
-###  features non-présentées
+### Les fonctionnalités pas présentées
 - settings et indexedb/pwa
 - events claviers
 - responsive (lol, faire une blague)
 
 
-###  reste à faire : 
+### RAF: le reste à faire
 - WebMidi ?
-- Signal en entrée.
+- Micro en entrée.
+Notes:
+- j'ai fait le coeur de métier, mais je pourrais plug plus de features encore
 
 
-
-## conclusion / leçons
+## Conclusion / Leçons
 Notes:
 - Comme dans plein de chose, il y a des lecons à tirer de cette avanture
 
@@ -643,18 +666,31 @@ Notes:
 ###  L'api webaudio
 Notes:
 - c'est un gros jouet, peu de cas d'usage en dehors de la synthèse sonore
-- Vraiment bizarre
+- Vraiment bizarre, on me force à penser en objets, poser des cables
+- est-ce que j'ai besoin de savoir utiliser un synthétiseur modulaire avant d'utiliser cette API
+- j'ai l'impression que oui
 
 
-###  les gens sérieux
+### Les gens sérieux
 - font du C (ou du zig) dans ce domaine
-- mais: on est là pour le fun
+- mais: on est là pour le fun 🤡
 Notes: 
 - pour des raisons de latence
 - javascript est assez versatile pour que ça passe
+- anything can be re-written in JS
 
 
-### Ça n'empêche pas de 
+### Scratch an itch
+- Grattez vos démangaisons
+- Vous avez envie de faire un truc ?
+- Faites-le
+
+
+### Discipline
+- penser MVP
+- 2h par jour (30 minutes c'est pas assez)
+
+Ça n'empêche pas de 
 - faire du code "inutile"
 - faites de l'art inutile
 - faites de la musique
@@ -666,33 +702,31 @@ Notes:
 
 ### Sens de réalisation
 
-- partir de l'interface finale ( ou des maquettes figma ), c'est le meilleur moyen de foirer vos devs front. Orienter sur la donnée.
+- partir de l'interface finale ( ou des maquettes figma ) = 0💩
+Notes:
+, c'est le meilleur moyen de foirer vos devs front. Orienter sur la donnée.
 
 
 ### Ce n'est pas grave
 - si vos side-projects prennent du temps
 - si ça n'avance pas
-
-
-### MVP
-- n'obsédez pas sur les détails
-- minimum viable product
+Notes:
+- Le pire ennemi.
+- Ne peignez pas (trop) la girafe. (yack-shaving)
+- s'en rendre compte tôt
 
 
 ### Build in public
 - postuler à des sujets au conf, ca fout un coup de pression pour finirs ses side-projects.
-
-
-### Side project
-- C'est pas grave si ça prends du temps
-- Ne peignez pas (trop) la girafe. (yack-shaving)
-- Postuler à des confs.
+Notes:
+- j'ai aussi fait le truc en stream.
 
 
 ### Les sujets de niche
 - L'informatique c'est super-large
 - Tous les sujets sont "tech-isables"
 - Les portes sont ouvertes, il faut juste foncer dedans.
+Notes:
 
 
 ### Échecs
@@ -714,6 +748,7 @@ Notes:
 Notes:
 - Pour finir, je voudrais dédicacer ce talk à Jean-Pierre
 - Merci de m'avoir légué ce synthé
+- Et à vous, merci de m'avoir écouté
 
 
 ### Le bon coin
