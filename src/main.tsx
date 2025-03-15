@@ -10,9 +10,9 @@ import Highlight from "reveal.js/plugin/highlight/highlight";
 import RevealMath from "reveal.js/plugin/math/math";
 
 import { HighPass } from "./slides/filter-high-pass";
-import { Trigonometry } from "./slides/trigonometry";
 import { SineSound } from "./slides/sound-test-sine";
 import { NoiseSound } from "./slides/sound-test-noise";
+import { TrigonometricCircle } from "./slides/trigonometric-circle";
 
 let deck = new Reveal({
     plugins: [Markdown, Notes, Highlight, RevealMath.KaTeX],
@@ -21,7 +21,7 @@ let deck = new Reveal({
 
 const components: Record<string, ComponentChild> = {
     "high-pass": <HighPass />,
-    trigonometry: <Trigonometry />,
+    "trigonometric-circle": <TrigonometricCircle />,
     "sound-test-sine": <SineSound />,
     "sound-test-noise": <NoiseSound />
 };

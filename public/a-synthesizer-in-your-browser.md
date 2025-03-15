@@ -169,10 +169,17 @@ Notes:
 
 ### C'est un peu vague
 <img src="schemas/trigonometry.svg" />
-<!-- <div id="trigonometry" class="graphics"></div>-->
 Notes:
 - Pour faire une belle onde sonore, on fait une sinusoîdale
 - dans ce talk on va parler de maths un peu donc les bases
+
+
+### Attention, des maths :
+<div id="trigonometric-circle" class="graphics"></div>
+
+
+### Onde + digitalisation
+// todo, onde avec échantillonage
 
 
 ### Une onde sinusoîdale à 440Hz ?
