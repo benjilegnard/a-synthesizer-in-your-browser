@@ -178,6 +178,9 @@ Notes:
 <div id="trigonometric-circle" class="graphics"></div>
 
 
+<div id="fourier-square-wave" class="graphics"></div>
+
+
 ### Onde + digitalisation
 // todo, onde avec échantillonage
 

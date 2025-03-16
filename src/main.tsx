@@ -13,6 +13,7 @@ import { HighPass } from "./slides/filter-high-pass";
 import { SineSound } from "./slides/sound-test-sine";
 import { NoiseSound } from "./slides/sound-test-noise";
 import { TrigonometricCircle } from "./slides/trigonometric-circle";
+import { FourierSquareWave } from "./slides/fourier-square-wave";
 
 let deck = new Reveal({
     plugins: [Markdown, Notes, Highlight, RevealMath.KaTeX],
@@ -23,7 +24,8 @@ const components: Record<string, ComponentChild> = {
     "high-pass": <HighPass />,
     "trigonometric-circle": <TrigonometricCircle />,
     "sound-test-sine": <SineSound />,
-    "sound-test-noise": <NoiseSound />
+    "sound-test-noise": <NoiseSound />,
+    "fourier-square-wave": <FourierSquareWave />
 };
 
 deck
