@@ -9,7 +9,10 @@ interface SettingsPopupProps {
     buttonColor?: string;
 }
 
-/** Settings contains a form given by users, and display a ribbon button in the top right corner of the slide, it shows the children in an overlay when opened */
+/** 
+ * Settings contains a form given by users, displays a ribbon button in the top right corner of the slide,
+ * it shows the children in an overlay when opened
+ */
 export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
     buttonText = 'Interactif !',
     ribbonColor = '#4a90e2',
@@ -100,7 +103,7 @@ export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
                             lineHeight: '16px',
                             fontWeight: 'bold',
                             fontFamily: 'Poppins',
-                            cursor: children ? 'pointer' : 'unset',
+                            cursor: children ? 'cursor: url("images/cursor-hand.png"), auto' : 'unset',
                             outline: 'none',
                             transition: 'transform 0.2s ease',
                         }}
@@ -130,7 +133,6 @@ export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
                     inset: '0',
                     width: '100vw',
                     height: '100vh',
-                    opacity: '1',
                     zIndex: '1000',
                 }}
                 onClose={() => { isOpen.value = false; }}
@@ -146,7 +148,8 @@ export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
                         width: '25%',
                         backgroundColor: "rgba(0, 0, 0, 0.3)",
                         backdropFilter: "blur(4px)",
-                        transition: "transform 0.3s ease-in-out forwards",
+                        transform: "translateX(100%)",
+                        transition: "transform 0.3s ease-in-out",
                     }}>
                     <button
                         onClick={() => { isOpen.value = false; }}
@@ -157,7 +160,6 @@ export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
                             backgroundColor: 'transparent',
                             border: 'none',
                             fontSize: '48px',
-                            cursor: 'pointer',
                             padding: '10px',
                             lineHeight: '1',
                             color: catppuccin.text,
@@ -166,7 +168,7 @@ export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
                     >
                         ×
                     </button>
-                    <div style={{ marginTop: '24px' }} onClick={(event) => { event.stopPropagation(); event.stopImmediatePropagation(); }}>
+                    <div style={{ margin: "24px 10px" }} onClick={(event) => { event.stopPropagation(); event.stopImmediatePropagation(); }}>
                         {children}
                     </div>
                 </div>
@@ -175,7 +177,7 @@ export const SettingsPopup: FunctionComponent<SettingsPopupProps> = ({
             {/* Add global styles */}
             <style>
                 {`
-          .container.closing {
+          .closing .container {
              transform: translateX(200%);
           } 
           dialog:not([open]) {

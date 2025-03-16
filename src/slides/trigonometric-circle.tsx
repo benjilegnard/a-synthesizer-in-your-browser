@@ -3,6 +3,7 @@ import { useEffect } from 'preact/hooks';
 import { Graphics } from '../components/graphics';
 import { flavors } from "@catppuccin/palette";
 import { FunctionalComponent } from 'preact';
+import { WIDTH } from '../common/constants';
 interface Point {
     x: number;
     y: number;
@@ -13,7 +14,6 @@ const cosColor = mocha.blue.hex;
 const angleColor = mocha.yellow.hex;
 const legendColor = mocha.surface0.hex;
 // Constants
-const WIDTH = 1280;
 const PADDING = 20;
 const CIRCLE_RADIUS = 318;
 const CENTER_X = 360;

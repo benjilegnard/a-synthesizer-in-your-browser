@@ -32,6 +32,7 @@ Par ordre d'apparition dans les slides:
 - Modular Synth <https://www.thomann.de/blog/en/modular-synthesizers-explained-simply/>
 - Oscilloscope: <https://www.reddit.com/r/electronics/comments/axiktz/1970s_tektronix_465_oscilloscope/>
 - Large Scary Maths symbol tweet from Freya Holmer <https://x.com/FreyaHolmer/status/1436696408506212353>
+- 
 
 ## Plan
 

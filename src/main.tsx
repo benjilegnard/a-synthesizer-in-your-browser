@@ -9,13 +9,15 @@ import Notes from "reveal.js/plugin/notes/notes";
 import Highlight from "reveal.js/plugin/highlight/highlight";
 import RevealMath from "reveal.js/plugin/math/math";
 
-import { HighPass } from "./slides/filter-high-pass";
+import { HighPassFilter, LowPassFilter } from "./slides/filter-high-pass";
 import { SineSound } from "./slides/sound-test-sine";
 import { NoiseSound } from "./slides/sound-test-noise";
 import { OscillatorOneEnvelopeGenerator, OscillatorTwoEnvelopeGenerator } from "./slides/envelope-generator-1";
 import { TrigonometricCircle } from "./slides/trigonometric-circle";
 import { FourierSquareWave } from "./slides/fourier-square-wave";
 import { Digitalization } from "./slides/digitalization";
+import { WaveformPeriodicWave } from "./slides/wave-form-periodic-wave";
+import AudioPlayer from "./slides/pulse-width-player";
 
 let deck = new Reveal({
     plugins: [Markdown, Notes, Highlight, RevealMath.KaTeX],
@@ -23,14 +25,17 @@ let deck = new Reveal({
 
 
 const components: Record<string, ComponentChild> = {
-    "high-pass": <HighPass />,
+    "high-pass-filter": <HighPassFilter />,
+    "low-pass-filter": <LowPassFilter />,
     "trigonometric-circle": <TrigonometricCircle />,
     "digitalization": <Digitalization />,
     "sound-test-sine": <SineSound />,
     "sound-test-noise": <NoiseSound />,
     "envelope-generator-1": <OscillatorOneEnvelopeGenerator />,
     "envelope-generator-2": <OscillatorTwoEnvelopeGenerator />,
-    "fourier-square-wave": <FourierSquareWave />
+    "fourier-square-wave": <FourierSquareWave />,
+    "audio-player": <AudioPlayer />,
+    "wave-form-periodic-wave": <WaveformPeriodicWave />,
 };
 
 deck
@@ -59,23 +64,3 @@ deck
         });
     });
 
-// execute order 66 ( remove B to "pause" keybinding )
-document.addEventListener("keydown", (event) => {
-    if (event.keyCode === 66) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        // todo execute slide animation
-    }
-});
-document.addEventListener("keypress", (event) => {
-    event.preventDefault();
-    console.log("key", event.key);
-    const mappings: Record<string, () => void> = {
-        h: Reveal.left,
-        j: Reveal.down,
-        k: Reveal.up,
-        l: Reveal.right,
-    };
-    mappings[event.key] ?? mappings[event.key]();
-});

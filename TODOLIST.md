@@ -1,4 +1,10 @@
-- [ ] corriger souci dimensionnement svg / ombre etc...
-- [ ] audio visualizer commun entre slides
-- [ ] slide génération son => sinusoide A440
-- [ ] slide génération random noise => 
+- [x] corriger souci dimensionnement svg / ombre etc...
+- [-] audio visualizer commun entre slides
+- [-] slide génération son => sinusoide A440
+- [-] slide génération random noise => 
+- [ ] slide digitalisation.
+- [ ] refonte intro : histoire perso + projetc perso, finir transition musique.
+- [ ] corriger 
+- [ ] ajouter slide forme d'onde
+- [ ] ajouter examples code forme d'onde
+- [ ] slides et discours knob

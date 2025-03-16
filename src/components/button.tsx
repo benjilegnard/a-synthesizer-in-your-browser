@@ -16,7 +16,6 @@ export const Button: FunctionalComponent<ButtonProps> = (props) => {
             style={{
                 border: `solid 2px ${baseColor}`,
                 padding: "10px",
-                cursor: "pointer",
                 color: baseColor,
                 borderRadius: "3rem",
                 background: colors.mantle.hex,

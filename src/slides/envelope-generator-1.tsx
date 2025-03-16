@@ -376,7 +376,6 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                         padding: '8px 16px',
                         borderRadius: '4px',
                         border: 'none',
-                        cursor: 'pointer'
                     }}
                 >
                     Play Sound

@@ -1,22 +1,14 @@
 import { useEffect } from "preact/hooks";
 
-export function getAudioContextSingleton() {
-  let context: AudioContext | undefined = undefined;
-  function createAudioCtx() {
-    console.log("createSingleton");
-    return new AudioContext();
-  }
-  return () => {
-    if (!context) {
-      context = createAudioCtx();
-    }
-    return context;
-  };
+const context = new AudioContext();
+
+interface AudioContextWrapper {
+  context: AudioContext;
+  analyser: AnalyserNode;
+  gainNode: GainNode;
 }
 
-export function useAudioContext() {
-  const context: AudioContext = getAudioContextSingleton()();
-
+export const useAudioContext = () => {
   /** Suspend the audio context */
   function pause() {
     context.suspend();
@@ -39,4 +31,4 @@ export function useAudioContext() {
   }, [context]);
 
   return { context, pause, play };
-}
+};

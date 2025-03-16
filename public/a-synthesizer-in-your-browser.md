@@ -14,40 +14,7 @@ Notes:
 - Bref, j'ai fait une clownerie
 - aujourd'hui je vais vous parler d'un synthétiseur 
 - le KORG MS-20, un modèle mythique, sortie en 1978 qui...
-- en vrai je vais surtout vous parlez d'un side-project
-
-
-### Side-project 
-- apprendre 👨‍🎓
-- s'amuser 🤡
-Notes:
-- un side project qui m'a pris beaucoup de temps
-- voire même fait m'arracher les cheveux que je n'ai plus
-- Un side project, ca devrait pas avoir d'autres d'objectifs sinon apprendre et s'amuser.
-
-
-### Stack Technique 
-- ⚛️ preact (🚥 + signals)
-- 🔈 WebAudio
-- 🐼 PandaCSS
-- 🐙 github actions
-- ⚡ vite/vitest
-Notes:
-- faire "propre" quand même
-- c'est une excuse pour apprendre
-- on peut vouloir utiliser autre chose qu'angular
-- sortir de mes compétences
-
-
-### Qui-suis,je ?
-
-- Benjamin Legrand
-- Tech lead @ onepoint
-- @benjilegnard
-
-
-
-## Histoire(s)
+- en vrai je vais surtout vous parlez d'un side-project, mais avant:
 
 
 ### Mon oncle Jean-Pierre
@@ -85,8 +52,13 @@ Notes:
 ### J'en ai un chez moi
 <img src="images/benjilegnard-korg.png"/>
 Notes:
-- Je l'ai chez moi
+- Tout ça pour vous dire que je l'ai chez moi
 - J'ai grandi avec, j'ai découvert la synthèse sonore et la musique électronique avec.
+
+
+### Codepen / 2015 
+- des gens font des trucs
+- api WebAudio
 
 
 ### Idée bizarre ou idée de  génie ?
@@ -94,7 +66,35 @@ Notes:
 Notes:
 - Du coup je me lance dans ce projet bizarre.
 - D'implémenter ce synthétiseur spécifiquement.
-- Et donc la première question, c'est comment on fait de la musique avec un ordinateur.
+
+
+### Objectifs d'un Side-project 
+- apprendre 👨‍🎓
+- s'amuser 🤡
+Notes:
+- un side-projet de dev, ça ne devrait avoir que deux objectifs
+- voire même fait m'arracher les cheveux que je n'ai plus
+- Un side project, ca devrait pas avoir d'autres d'objectifs sinon apprendre et s'amuser.
+
+
+### Stack Technique 
+- ⚛️ preact (🚥 + signals)
+- 🔈 WebAudio
+- 🐼 PandaCSS
+- 🐙 github actions
+- ⚡ vite/vitest
+Notes:
+- faire "propre" quand même
+- c'est une excuse pour apprendre
+- on peut vouloir utiliser autre chose qu'angular
+- sortir de mes compétences
+
+
+### Qui-suis,je ?
+
+- Benjamin Legrand
+- Tech lead @ onepoint
+- @benjilegnard
 
 
 
@@ -143,6 +143,14 @@ Notes:
 - Moi après trois bière
 - Si vous connaissez pas cette vid elle est trop bien, Introduction à un cours de mathématiques
 - Tout peut être décrit par une fonction mathématique
+- Imaginons que vous vouliez faire une belle onde sonore...
+
+
+### C'est un peu vague
+<div id="trigonometric-circle" class="graphics"></div>
+Notes:
+- Pour faire une belle onde sonore, on fait une sinusoîdale
+- dans ce talk on va parler de maths un peu donc petit rappels de bases, sin(), cos() etc...
 
 
 ### En électricité analogique
@@ -157,9 +165,30 @@ Notes:
 
 ### Le son, pour un ordinateur
 
-C'est un tableau de chiffres. `Array<number>`.
+C'est un tableau de chiffres.
 ```typescript
-[0.52, 0.5, 0.342, -0.342, -0.5]
+[
+      0.1428176909685135, -0.009993421845138073,   -0.09681789577007294,
+    -0.10563240200281143,  -0.05686311796307564,   0.009973702020943165,
+     0.05656611919403076,   0.06287819147109985,    0.03327815607190132,
+   -0.009940887801349163, -0.040930114686489105,  -0.044377706944942474,
+    -0.02217552810907364,   0.00989505648612976,    0.03252870589494705,
+     0.03396344184875488,   0.01567859761416912,  -0.009836316108703613,
+    -0.02722390927374363, -0.027226513251662254,  -0.011390355415642262,
+    0.009764807298779488,  0.023526398465037346,    0.02247156761586666,
+     0.00833441037684679,  -0.00968069676309824,  -0.020768849179148674,
+    -0.01890774630010128, -0.006038447842001915,   0.009584184736013412,
+    0.018607767298817635,  0.016116628423333168,   0.004246169701218605,
+   -0.009475498460233212, -0.016848448663949966,  -0.013856206089258194,
+   -0.002806499134749174,  0.009354893118143082,   0.015372405759990215,
+     0.01197686418890953, 0.0016246286686509848,   -0.00922265276312828,
+   -0.014103495515882969, -0.010381207801401615, -0.0006380616687238216,
+    0.009079087525606155,  0.012990637682378292,   0.009003163315355778,
+  -0.0001960703666554764, -0.008924535475671291,  -0.011998359113931656,
+   -0.007796374149620533, 0.0009081565658561885,    0.00875935610383749,
+    0.011101319454610348,  0.006727392319589853, -0.0015203476650640368,
+   -0.008583936840295792, -0.010280984453856945, -0.0057715061120688915
+]
 ```
 
 Notes:
@@ -171,22 +200,35 @@ Notes:
 <div id="digitalization" class="graphics"></div>
 
 
-### C'est un peu vague
-<img src="schemas/trigonometry.svg" />
-Notes:
-- Pour faire une belle onde sonore, on fait une sinusoîdale
-- dans ce talk on va parler de maths un peu donc les bases
-
 
 ### Attention, des maths :
-<div id="trigonometric-circle" class="graphics"></div>
-
 
 <div id="fourier-square-wave" class="graphics"></div>
 
 
+<div id="wave-form-periodic-wave" class="graphics"></div>
+
+
+<div id="envelope-generator-1" class="graphics"></div>
+
+
+<div id="envelope-generator-2" class="graphics"></div>
+
+
+<div id="high-pass-filter" class="graphics"></div>
+
+
+<div id="low-pass-filter" class="graphics"></div>
+
+
+<div id="audio-player" class="graphics"></div>
+
+
 ### Onde + digitalisation
 // todo, onde avec échantillonage
+
+
+### Code naîf.
 
 
 ### Une onde sinusoîdale à 440Hz ?
@@ -294,7 +336,7 @@ classDiagram
 ### Des noeuds (au cerveau?)
 
 ```
-AnalyzerNode
+AnalyserNode
 AudioBufferSourceNode
 AudioWorkletNode
 BiquadFilterNode
@@ -620,6 +662,9 @@ Notes:
 
 ## Oscillateurs
 
+### Les contrôles
+// todo zoom sur la partie
+Notes: 
 
 ### sinusoide / triangle / sawtooth
 - les types d'ondes sonores
@@ -662,10 +707,10 @@ oscillator2Node.start();
 
 
 ### Code api webaudio
-- ne supporte que destypes d'ondes "triangle", "sine", "rectangle" et "sawtooth"
+- ne supporte que des types d'ondes "triangle", "sine", "rectangle" et "sawtooth"
 - type custom : nécéssite de fournir une 
 // TODO pulse-wave interactive slide
-
+<div id="pulse-width-waves" class="graphics"/>
 
 
 ### Transformation de fourier.
@@ -696,6 +741,7 @@ Notes:
 ### Qui a la source de donnée sur la fréquence / la note ?
 - source unique de vérité ?
 
+
 ### Signals et gestion d'état
 ```typescript
 const counter = signal(0);
@@ -718,7 +764,9 @@ const oscillator1Frequency = computed(() => {});
 
 
 ## Les potentiomètres
-le truc rond, là.
+Notes:
+- le truc rond, là.
+- ou Knob en anglais
 
 
 ###  trigonométrie
@@ -741,6 +789,7 @@ le truc rond, là.
 
 
 ###  application sur les filtres
+
 
 
 ## knob: avancé
@@ -806,13 +855,35 @@ le truc rond, là.
 ## Filtres
 
 
-### Passe haut
+### Les contrôles
+
+// todo zoom sur la bonne partie
+
+Notes:
+- on peut ajuster la fréquence de coupure
+- et on peut également ajuster le pic (peak)
+
+
+### Dans le manuel
+
 <img src="schemas/high-pass-low-pass.svg"/>
+Notes:
+- si je reviens à mon manuel vous voy
+
+
+### Passe haut
+
+<div id="high-pass-filter" class="graphics"></div>
+
 
 ### Passe bas
-<img src="schemas/high-pass-low-pass.svg"/>
+
+<div id="low-pass-filter" class="graphics"></div>
+
 
 ### Nodes
+
+
 
 
 ### peaks
@@ -838,7 +909,7 @@ le truc rond, là.
 
 
 
-## Envelope generator
+## Générateurs d'enveloppe
 
 
 ###  revenons au schéma
@@ -846,9 +917,13 @@ le truc rond, là.
 
 ###  ASDR, attack sustain, release delay.
 
+<div id="envelope-generator-1" class="graphics" />
 
 ###  filtres ++
 
+### AudioParam
+- setValueAtTime()
+- setLinearRampTo()
 
 ###  démo 
 
@@ -954,7 +1029,7 @@ Notes:
 ### Discipline
 - penser MVP
 - 2h par jour (30 minutes c'est pas assez)
-
+Notes:
 Ça n'empêche pas de 
 - faire du code "inutile"
 - faites de l'art inutile
@@ -966,10 +1041,10 @@ Notes:
 
 
 ### Sens de réalisation
-
 - partir de l'interface finale ( ou des maquettes figma ) = 0💩
 Notes:
-, c'est le meilleur moyen de foirer vos devs front. Orienter sur la donnée.
+- c'est le meilleur moyen de foirer vos devs front. Orienter sur la donnée.
+- conceptualiser, conception avant.
 
 
 ### Ce n'est pas grave
@@ -1025,5 +1100,6 @@ Notes:
 
 
 ## Merci
-
-// TODO qrcodes et slide de fin
+<a href="https://openfeedback.io/0nEhuP6qarjm0R4pbRG1/2025-03-21/rushwpQL24fyn25fNOz2" target="_blank">
+  <img src="images/qrcode-atlday.png" />
+</a>

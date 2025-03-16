@@ -2,16 +2,19 @@ import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
 import { PlayPauseButton } from "../components/play-pause";
 import { SettingsPopup } from "../components/settings-popup";
+import { FunctionalComponent } from "preact";
+import { WaveformVisualizer } from "../components/wave-form-visualizer";
+import { HEIGHT, WIDTH } from "../common/constants";
 
 let oscillator: OscillatorNode;
 let context: AudioContext;
-
+let analyser: AnalyserNode;
 /**
  * Slide explaining what is sound in the air
  *
  * but caché, tester que le son fonctionne.
  */
-export const SineSound = () => {
+export const SineSound: FunctionalComponent = () => {
     const isPlaying = useSignal<boolean>(false);
 
     const toggleSound = () => {
@@ -23,18 +26,24 @@ export const SineSound = () => {
             oscillator.frequency.value = 440;
             oscillator.start();
             oscillator.connect(context.destination);
+            analyser = context.createAnalyser();
+            oscillator.connect(analyser);
+            context.resume();
             //play();
         }
 
         if (isPlaying.value) {
             // pause();
+            context.suspend();
             oscillator?.disconnect();
+            analyser?.disconnect();
         }
         isPlaying.value = !isPlaying.value;
     }
 
     return (
         <>
+            <WaveformVisualizer analyserNode={analyser} width={WIDTH} height={HEIGHT} />
             <PlayPauseButton
                 isPlaying={isPlaying.value}
                 onClick={toggleSound}
