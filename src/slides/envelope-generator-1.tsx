@@ -51,7 +51,7 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
     // Calculate envelope points for SVG path
     const calculateEnvelopePoints = (): Point[] => {
         const graphWidth = WIDTH - (PADDING * 2);
-        const graphHeight = HEIGHT - (PADDING * 2);
+        // const graphHeight = HEIGHT - (PADDING * 2);
 
         // Calculate time scaling factor - fixed maximum time for better visualization
         const timeScaleFactor = graphWidth / MAX_DISPLAY_DURATION;
@@ -165,8 +165,7 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
     const triggerPoints = calculateTriggerPoints(envelopePoints);
     const triggerPath = generatePath(triggerPoints);
     return (
-        <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '16px' }}>
-
+        <>
             {/* SVG Envelope Visualization */}
             <Graphics>
 
@@ -383,7 +382,7 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                     Play Sound
                 </button>
             </SettingsPopup>
-        </div>
+        </>
     );
 };
 

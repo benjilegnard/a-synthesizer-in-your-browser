@@ -1,7 +1,7 @@
-import { Button } from "../components/button";
 import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
 import { PlayPauseButton } from "../components/play-pause";
+import { SettingsPopup } from "../components/settings-popup";
 
 
 let context: AudioContext;
@@ -51,6 +51,7 @@ export const NoiseSound = () => {
             <Graphics>
                 <g></g>
             </Graphics>
+            <SettingsPopup />
         </>
     )
 };

@@ -15,6 +15,7 @@ import { NoiseSound } from "./slides/sound-test-noise";
 import { OscillatorOneEnvelopeGenerator, OscillatorTwoEnvelopeGenerator } from "./slides/envelope-generator-1";
 import { TrigonometricCircle } from "./slides/trigonometric-circle";
 import { FourierSquareWave } from "./slides/fourier-square-wave";
+import { Digitalization } from "./slides/digitalization";
 
 let deck = new Reveal({
     plugins: [Markdown, Notes, Highlight, RevealMath.KaTeX],
@@ -24,6 +25,7 @@ let deck = new Reveal({
 const components: Record<string, ComponentChild> = {
     "high-pass": <HighPass />,
     "trigonometric-circle": <TrigonometricCircle />,
+    "digitalization": <Digitalization />,
     "sound-test-sine": <SineSound />,
     "sound-test-noise": <NoiseSound />,
     "envelope-generator-1": <OscillatorOneEnvelopeGenerator />,

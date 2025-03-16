@@ -1,6 +1,7 @@
 import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
 import { PlayPauseButton } from "../components/play-pause";
+import { SettingsPopup } from "../components/settings-popup";
 
 let oscillator: OscillatorNode;
 let context: AudioContext;
@@ -42,6 +43,7 @@ export const SineSound = () => {
             <Graphics>
                 <g>{}</g>
             </Graphics>
+            <SettingsPopup />
         </>
     );
 };

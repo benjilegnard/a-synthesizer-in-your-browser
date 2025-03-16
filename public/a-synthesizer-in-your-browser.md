@@ -167,6 +167,10 @@ Notes:
 - on va plutôt utiliser des structures toutes faites pour ça. (Buffer)
 
 
+### Bitrate / Digitalisation
+<div id="digitalization" class="graphics"></div>
+
+
 ### C'est un peu vague
 <img src="schemas/trigonometry.svg" />
 Notes:
