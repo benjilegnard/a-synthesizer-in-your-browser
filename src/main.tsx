@@ -12,6 +12,7 @@ import RevealMath from "reveal.js/plugin/math/math";
 import { HighPass } from "./slides/filter-high-pass";
 import { SineSound } from "./slides/sound-test-sine";
 import { NoiseSound } from "./slides/sound-test-noise";
+import { OscillatorOneEnvelopeGenerator, OscillatorTwoEnvelopeGenerator } from "./slides/envelope-generator-1";
 import { TrigonometricCircle } from "./slides/trigonometric-circle";
 import { FourierSquareWave } from "./slides/fourier-square-wave";
 
@@ -25,6 +26,8 @@ const components: Record<string, ComponentChild> = {
     "trigonometric-circle": <TrigonometricCircle />,
     "sound-test-sine": <SineSound />,
     "sound-test-noise": <NoiseSound />,
+    "envelope-generator-1": <OscillatorOneEnvelopeGenerator />,
+    "envelope-generator-2": <OscillatorTwoEnvelopeGenerator />,
     "fourier-square-wave": <FourierSquareWave />
 };
 
