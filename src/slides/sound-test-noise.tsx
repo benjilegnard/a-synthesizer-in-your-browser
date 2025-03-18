@@ -3,7 +3,6 @@ import { useSignal } from "@preact/signals";
 import { PlayPauseButton } from "../components/play-pause";
 import { SettingsPopup } from "../components/settings-popup";
 import { WaveformVisualizer } from "../components/wave-form-visualizer";
-import { HEIGHT, WIDTH } from "../common/constants";
 
 
 let context: AudioContext;

@@ -2,12 +2,6 @@ import { useEffect } from "preact/hooks";
 
 const context = new AudioContext();
 
-interface AudioContextWrapper {
-  context: AudioContext;
-  analyser: AnalyserNode;
-  gainNode: GainNode;
-}
-
 export const useAudioContext = () => {
   /** Suspend the audio context */
   function pause() {

@@ -6,10 +6,13 @@ import { useEffect, useRef } from "preact/hooks";
 import { flavors } from "@catppuccin/palette";
 const { colors } = flavors.mocha;
 const BACKGROUND_COLOR = colors.crust.hex;
+/* 
+ * // TODO: catppuccin colors
 const LINE_COLOR = flavors.mocha.colors.surface0.hex;
 const COLORS = [
     colors.yellow.hex, colors.maroon.hex, colors.red.hex,
-]
+];
+*/
 // Frequency visualization component
 interface FrequencyVisualizerProps {
     analyserNode: AnalyserNode | null;
