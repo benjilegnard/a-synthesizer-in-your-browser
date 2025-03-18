@@ -43,6 +43,13 @@ Notes:
 - Daniel Wasilewski à la batterie
 
 
+### J'en ai un chez moi
+<img src="images/benjilegnard-korg.png"/>
+Notes:
+- Tout ça pour vous dire que je l'ai chez moi
+- J'ai grandi avec, j'ai découvert la synthèse sonore et la musique électronique avec.
+
+
 ### Le KORG MS-20
 
 <img src="images/korg-official-photo.jpg" />
@@ -52,26 +59,23 @@ Notes:
 - simple à utiliser
 
 
-### J'en ai un chez moi
-<img src="images/benjilegnard-korg.png"/>
-Notes:
-- Tout ça pour vous dire que je l'ai chez moi
-- J'ai grandi avec, j'ai découvert la synthèse sonore et la musique électronique avec.
-
-
-### Codepen / 2015 
+### Codepen 2015 / 2016
 - des gens font des trucs
-- api WebAudio
+- avec l'api WebAudio
+Notes:
+- je tombe sur des dingueries
+- je me dis "ca colle"
 
 
 ### Idée bizarre ou idée de  génie ?
-- "ça colle"
+<img src="images/initial-commit.png" />
 Notes:
 - Du coup je me lance dans ce projet bizarre.
 - D'implémenter ce synthétiseur spécifiquement.
 
 
-### Objectifs d'un Side-project 
+### Objectifs d'un side-project 
+- expérimenter 🧪
 - apprendre 👨‍🎓
 - s'amuser 🤡
 Notes:
@@ -83,9 +87,10 @@ Notes:
 ### Stack Technique 
 - ⚛️ preact (🚥 + signals)
 - 🔈 WebAudio
-- 🐼 PandaCSS
-- 🐙 github actions
-- ⚡ vite/vitest
+- 🐼 PandaCSS<!-- .element class="fragment"-->
+- 🐙 github actions<!-- .element class="fragment"-->
+- ⚡ vite/vitest<!-- .element class="fragment"-->
+
 Notes:
 - faire "propre" quand même
 - c'est une excuse pour apprendre
@@ -128,12 +133,22 @@ Notes:
 - Vibration dans l'air => Vos Tympans
 
 
-### Source:
+### Source: Jackass
 
 <img src="images/memes/sound-system-ryan-dunn-2.gif" style="width: 1280px"/>
 
 Notes:
 - sourcez tout.
+
+
+### En électricité analogique
+<img src="images/oscilloscope.png" />
+Un signal alternatif de + ou - 5 volts
+Notes:
+- le courant va dans un sens, puis dans l'autre
+- le korg ms-20 utilise ça, 100% analogique, pas d'électronique
+- quand vous branchez des enceintes à une chaine hi-fi, tout ça.
+- pour un ordinateur, maintenant, c'est quoi ? 
 
 
 ### La musique, c'est des maths
@@ -145,7 +160,7 @@ Notes:
 Notes:
 - Moi après trois bière
 - Si vous connaissez pas cette vid elle est trop bien, Introduction à un cours de mathématiques
-- Tout peut être décrit par une fonction mathématique
+- Tout peut être décrit par une fonction mathématique, du son de ma voix jusqu'à vos tympans, de la lumière de ce spot jusqu'à vos vieux
 - Imaginons que vous vouliez faire une belle onde sonore...
 
 
@@ -154,16 +169,6 @@ Notes:
 Notes:
 - Pour faire une belle onde sonore, on fait une sinusoîdale
 - dans ce talk on va parler de maths un peu donc petit rappels de bases, sin(), cos() etc...
-
-
-### En électricité analogique
-<img src="images/oscilloscope.png" />
-Un signal alternatif de + ou - 5 volts
-Notes:
-- le courant va dans un sens, puis dans l'autre
-- le korg ms-20 utilise ça, 100% analogique, pas d'électronique
-- quand vous branchez des enceintes à une chaine hi-fi, tout ça.
-- pour un ordinateur, maintenant, c'est quoi ? 
 
 
 ### Le son, pour un ordinateur
@@ -209,11 +214,23 @@ Notes:
 Notes:
 - tout mes examples là dans mes slides, ils utilisent une API qui est disponible dans mes navigateurs
 - l'api WebAudio
+- En théorie, un appel de la fonction sin() ou cos()
+
+
+### Le code derrière le slide:
+```typescript
+const context = new AudioContext();
+const oscillator = context.createOscillator();
+oscillator.type = "sine";
+oscillator.frequency.value = 440;
+oscillator.start();
+oscillator.connect(context.destination);
+```
 
 
 ### Faites du bruit
 
-Si je remplis un tableau de valeur aléatoires
+Si je remplis un tableau de valeurs aléatoires
 
 ```typescript
 context = new AudioContext();
@@ -225,6 +242,7 @@ for (let i = 0; i < bufferSize; i++) {
 }
 ```
 Notes:
+- Pour illustrer mon propos sur le tableau de chiffres.
 - Math.random() emphasize.
 
 
@@ -416,7 +434,7 @@ Notes:
 
 
 ### Visual interface
-<img src="images/korg-components-cutting-base.svg" />
+<img src="schemas/korg-components-cutting-base.svg" />
 
 Notes:
 - Ce qui est bien avec le korg, c'est qu'il montre visuellement comment les choses fonctionnent ou s'utilisent / meilleur type d'UI
@@ -453,6 +471,9 @@ Notes:
 
 ## Le clavier
 
+
+### Ce type de clavier:
+<img src="images/zooms/zoom-keyboard.png"/>
 Notes:
 - la partie la plus importante
 - Celle qui définit la note, la fréquence de mon son.
@@ -575,12 +596,12 @@ interface KeyProps {
 }
 ```
 Notes:
+- ma méthode d'initialisation elle me renvoie ça
 - j'ai donc un tableau avec cet objet pour chaque touche
 
 
-### Une boucle for
-`keyboard.tsx`
-```typescript
+### Composant `keyboard.tsx`
+```tsx
 export const Keyboard = () => {
 	const keyValues = useMemo(() => createKeysArray(), []);
 	return (<div>
@@ -597,65 +618,68 @@ Notes:
 - preact
 
 
-### Events click
-`key.tsx`
-```typescript
-export const Key = (props: KeyProps) => {
-	return (
-		<button
-            class={props.color}
-			name="key"
-			type="button"
-			value={props.freq}
-			title={props.note}
-			onClick={() => {
-                oscillator.frequency.value = props.freq
-            }}
-		>
-			{props.note}
-		</button>
-	);
-};
+### Composant `key.tsx`
+```tsx
+export const Key = (props: KeyProps) => (
+    <button
+        class={props.color}
+        name="key"
+        type="button"
+        value={props.freq}
+        title={props.note}
+        onMouseDown={() => {
+            oscillator.frequency.value = props.freq;
+            oscillator.play();
+        }}
+        onMouseUp={()=>{
+            oscillator.stop();
+        }}
+    >
+        {props.note}
+    </button>
+);
 ```
 
 
 ### Position en CSS
 - décalage / position absolute pour les noires
 - relative pour les blanches 
-(TODO code example)
+Notes:
+// TODO code example)
+ou passer, on se l'épargne
 
 
 ### Bon.
 - jusqu'ici tout va bien, c'est joli, mais ça fait rien
 Notes:
-- ce qui va créé du son,
+- ce qui va créé du son, c'est nos: 
 
 
 
 ## Oscillateurs
 
-### Les contrôles
-// todo zoom sur la partie
-Notes: 
 
-### sinusoide / triangle / sawtooth
-- les types d'ondes sonores
+### Les contrôles
+<img src="images/zooms/zoom-oscillator.png"/>
+Notes:
+- on en a deux principaux sur le ms-20
+- et chacun peut-être configuré avec son type d'onde ( timbre) 
 
 
 ### API
-`OscillatorNode`
-- frequency
-- detune
-- type 
-
-
-### Fréquence + modificateurs
-- potard "échelle"
+```typescript
+type OscillatorNode ={
+  frequency: number;
+  detune: AudioParam;
+  type: "sine"|"triangle"|"sawtooth"|"rectangle"|"custom"
+}
+```
 Notes:
-ça abaisse l'octave
+- je suis contant, ca va se configurer simplement pour certaines valeurs
+- "ca colle"
 
 
-### Mixer deux sources (GainNode)
+### Mise en place du graphe audio
 ```typescript[|3-4|6-7|9|]
 export const audioContext = new AudioContext();
 
@@ -676,13 +700,37 @@ oscillator2GainNode.connect(output);
 oscillator1Node.start();
 oscillator2Node.start();
 ```
+Notes:
+- je mets en place un graphe audio
+- Et je modifie le composant clé pour qu'il set deux fréquences
+
+
+### sinusoide / triangle / sawtooth
+- les types d'ondes sonores
+- // TODO svg avec select+option types de base
+Notes: 
+- je set mes composants front avec mes nodes et  
 
 
 ### Code api webaudio
 - ne supporte que des types d'ondes "triangle", "sine", "rectangle" et "sawtooth"
-- type custom : nécéssite de fournir une 
-// TODO pulse-wave interactive slide
+- type custom : nécéssite de fournir une "PeriodicWave"
 <div id="pulse-width-waves" class="graphics"/>
+Notes:
+// TODO pulse-wave interactive slide ( moi ce que je veux avoir )
+
+
+### Doc api webaudio
+
+- real[]
+- imag[]
+Notes:
+- la doc me parle de fournir des coefficients d'une transformation de fourier.
+
+
+### Attention, des maths :
+
+<div id="fourier-square-wave" class="graphics"></div>
 
 
 ### Transformation de fourier.
@@ -699,19 +747,45 @@ Notes:
 
 
 ### PeriodicWave
-```typescript
-// todo code sample
+```typescript[|1-2|3-4|5-6|7-9|10-14|16-17]
+const pulseWidth = 0.5;
+const harmonics = 64;
+// avoir 0 or 1 values so that there is always sound
+let dutyCycle = 0.01 + Math.min(Math.max(pulseWidth, 0)) * 0.98;
+let real = new Float32Array(harmonics);
+let imag = new Float32Array(harmonics);
+// DC offset (first value) is 0
+real[0] = 0;
+imag[0] = 0;
+for (let n = 1; n < harmonics; n++) {
+    let theta = Math.PI * dutyCycle * n;
+    real[n] = 0; // No cosine components for asymmetric wave
+    imag[n] = (2 / (Math.PI * n)) * Math.sin(theta); // Sine coefficients
+}
+
+const periodicWave = audioContext.createPeriodicWave(real, imag, { disableNormalization: true });
+oscillator2Node.setPeriodicWave(periodicWave);
 ```
+Notes:
+- C'est simple hein ? (non, sarcasme)
+- Bref, je suis content, je passe à la suite et là, c'est le drame
 
 
-### J'ai mis en place deux features, et c'est déjà le bordel
-- //TODO illustration spaghetti.
+### Fréquence + échelle
+<img src="images/zooms/zoom-oscillator.png"/>
+Notes:
+- ça abaisse l'octave
+- là je tombe sur un problème
+- autant je pouvais mapper 
+
+
+### J'ai mis en place deux features, et c'est déjà le b*****
+🍝
+Notes:
+- je suis déjà bloqué
 - problèmes : mon composant clé de clavier commande directement l'oscillateur
-- n'a pas connaissance de l'échelle ou des boutons de 
-
-
-### Qui a la source de donnée sur la fréquence / la note ?
-- source unique de vérité ?
+- n'a pas connaissance de l'échelle ou des boutons à l'autre bout du 
+- Qui a la source de donnée sur la fréquence / la note ?
 
 
 ### Signals et gestion d'état
@@ -720,29 +794,78 @@ const counter = signal(0);
 
 const oddOrEven = computed(() => counter.value % 2 ? "odd" : "event");
 
-effect(()=>{console.log(oddOrEvent)})
+effect(()=>{console.log(oddOrEvent.value)})
 ```
+Notes:
+- les signals, je développerai pas plus j'ai une conf là dessus.
+- mais en gros, réagir à une valeur encapsulée dans un signal
+- dériver des valeurs
+- déclencher des effets lor du changement de valeur
 
 
 ### Adapté à mon problème
-```typescript
+```typescript[|1|3|5-7|9-11]
 const currentFrequency = signal(440);
+
 const oscillator1Scale = signal<1|2|4|8|16>(2);
 
-const oscillator1Frequency = computed(() => {});
-```
+const oscillator1Frequency = computed(() => {
+  return currentFrequency.value / oscillator1Scale.value);
+};
 
+effect(() => {
+  oscillatorNode.frequency.value = oscillator1Frequency.value;
+});
+```
+Notes:
+- J'ai enfin un vrai cas d'usage pour effet:
+- synchronizer avec une lib externe, sans rien faire d'autre du résultat
+
+
+### Gestion d'état
+- Penser au découpage statique/dynamique
+- Tout ne va pas dans l'état
+Notes:
+- et là client/serveur
+- mon modèles de données = une autre sortie de mon état
+
+
+### signals + computed + effect = win
+- testabilité
+- clarté du code.
+- je ne teste que mes effets
+
+
+### architecture en trois couche au final.
+- interface
+- effects
+- audio-graph
+Notes:
+- séparation des responsabilités.
+- TODO graphique couches 
+- Maintenant qu'on a pris de la hauteur, revenons sur les composants en bout de chaine, le knob
 
 
 
 ## Les potentiomètres
 Notes:
-- le truc rond, là.
 - ou Knob en anglais
 
 
-###  trigonométrie
+### Les trucs ronds, là
+<img src="images/zooms/zoom-knobs.png"/>
+Notes:
+- le truc qu'on tourne, vu que je veux que ca ressemble, je me dis, implémentons ça
+- et là, encore une galère...
+
+
+###  trigonométrie (again)
 <img src="schemas/trigonometry.svg"/>
+Notes:
+- comme souvent dès que ca implique un truc rond, faut sortir la trigo
+
+
+### Dessiner l'échelle
 
 
 ###  problématique de rotation, dans quel sens ?
@@ -786,50 +909,12 @@ Notes:
 
 
 
-## Gestion d'état
-
-
-### découpage statique/dynamique
-
-
-### différents types d'état 
-- statique
-- de l'interface
-- du modèle de données (ici mon graphe audio)
-- du serveur
-
-
-### signals + computed + effect = win
-
-
-### architecture en trois couche au final.
-- interface
-- effects
-- audio-graph
-
-
-###  state machine (pilot, pas allez trop loin là)
-
-
-###  interface vs state
-
-
-###  graphe audio = pas mon ui
-
-
-###  "paramétrage" = ma donnée
-
-
-###  dériver l'état vers le graphe audio = effect
-
-
 
 ## Filtres
 
 
 ### Les contrôles
-
-// todo zoom sur la bonne partie
+<img src="images/zooms/zoom-filters.png" />
 
 Notes:
 - on peut ajuster la fréquence de coupure
@@ -853,38 +938,26 @@ Notes:
 <div id="low-pass-filter" class="graphics"></div>
 
 
-### Nodes
+### WebAudio API
+```typescript
+class BiquadFilterNode {
+  
+}
+```
 
 
-
-
-### peaks
-
-
-
-## la ci/cd
-
-
-###  lint & tests
-
-
-###  github actions
-
-
-###  pull-request => deploy sur staging
-
-
-###  tests reports
-
-
-###  c'est pas parce que c'est un side projet qu'on va se priver de bonne DX
+### Ajout de noeuds dans mon graphe
 
 
 
 ## Générateurs d'enveloppe
 
 
-###  revenons au schéma
+### Ils étaient deux
+<img src="images/zooms/zoom-envelope-generator.png"/>
+Notes:
+- attack time, delay time, release
+- hold time, attack decay sustain
 
 
 ###  ASDR, attack sustain, release delay.
@@ -899,77 +972,109 @@ Notes:
 - setValueAtTime()
 - setLinearRampTo()
 
-###  démo 
+
+### Example:
+
+
+### Nouveaux problèmes
+- ajoute une notion de temps
+- refacto nécéssaire avec un signal trigger
+Notes:
+- là je pourrais arrêter le talk là parce qu'en fait
+
+
+### Spoiler: j'ai pas fini
+Notes:
+- suivez moi sur twitch
+- lundi / mardi / mercredi 21h-23h
+- Dernier apparté avant de terminer parce que dans les trucs qui ont bien marché j'ai:
 
 
 
 ## Accessibilité
+Notes:
+- comment rendre ce bazar accessible?
+- Malheureusement, ça sera jamais 100% accessible (sourds)
 
 
-###  comment rendre ce bazar accessible?
+### Tout est backup par des composants du dom
+- composant "hors-normes"
+- oui mais:
+
+```html
+<input type="range" min="0" max="10" step="0.1" />
+```
+Notes:
+- j'ai plein de trucs un peu "funky" le composant knob, bien que visuel, il ne devrait pas réimplémenter de son côté un input type="range"
+- réinventer la roue, oui mais pas tout le temps
 
 
-###  solution: tout est backup par des composants du dom
+### Désactivation du CSS
+<img src="images/no-css.png" />
+Notes:
+- voyez les boutons natif
 
 
-###  démo désactivation CSS
+### Axe dans les tests unitaires
+Notes:
+- un des trucs que j'ai bien fait sur ce projet c'est un test auto avec axe-core
+- charge toute l'app sur des projets on peut charger toute une page / écran
+- valide que chaque changement ne fait pas régresser
+- J'ai pas fini, mais en fait si parce que les parties suivantes.
 
 
-###  label, output, tester 
+
+## Modulation de fréquences
 
 
-
-## modulation de fréquences
-
-
+### // TODO
+<img src="images/zooms/zoom-modulation-generator.png" />
+Notes:
 ###  ici des maths lourds
-
-
+// TODO
 ###  fourier
-
-
+// TODO
 ###  section à supprimer si pas le temps
+// TODO
 
 
 
-## le boss final : cable graphe
+## Le boss final : le patch panel
 
 
-###  connections
+### // TODO
+<img src="images/zooms/zoom-patch-panel.png" />
 
 
-###  moteur physique: parce que pourquoi pas ?
-
+### Connections
+- revoir tout le graphe audio
 
 ###  matter.js 
 
+- Un moteur physique dans un synthétiseur: 
+  - parce que pourquoi pas ?
 
 ###  longueur du cable 
-
-
 ###  machine a états
+### Péter mon dev initial
+- rajouter les noeuds de "connection"
+### Backup par.
 
 
 
 ## démo finale
 
 
+<!-- .element: data-background-iframe="https://gotloop.github.io/ms-20/" data-background-interactive data-preload -->
 
 
-## bonus: 
-
-
-### Les fonctionnalités pas présentées
+### Les fonctionnalités pas ~~présentées~~ finies
 - settings et indexedb/pwa
-- events claviers
-- responsive (lol, faire une blague)
-
-
-### RAF: le reste à faire
-- WebMidi ?
-- Micro en entrée.
+- events claviers ( WebMidi ? )
+- responsive (= ajouter une scrollbar)
 Notes:
 - j'ai fait le coeur de métier, mais je pourrais plug plus de features encore
+
 
 
 ## Conclusion / Leçons
@@ -978,6 +1083,7 @@ Notes:
 
 
 ###  L'api webaudio
+<img src="images/memes/modular-synthesis.gif" />
 Notes:
 - c'est un gros jouet, peu de cas d'usage en dehors de la synthèse sonore
 - Vraiment bizarre, on me force à penser en objets, poser des cables
@@ -988,7 +1094,7 @@ Notes:
 ### Les gens sérieux
 - font du C (ou du zig) dans ce domaine
 - mais: on est là pour le fun 🤡
-Notes: 
+Notes:
 - pour des raisons de latence
 - javascript est assez versatile pour que ça passe
 - anything can be re-written in JS
@@ -998,14 +1104,13 @@ Notes:
 - Grattez vos démangaisons
 - Vous avez envie de faire un truc ?
 - Faites-le
-
-
-### Discipline
-- penser MVP
-- 2h par jour (30 minutes c'est pas assez)
 Notes:
-Ça n'empêche pas de 
-- faire du code "inutile"
+- la seule contrainte de décider de s'allouer du temps
+- discipline: 2h par jour (30 minutes c'est pas assez)
+
+
+### C'est la faites.
+- faites du code "inutile"
 - faites de l'art inutile
 - faites de la musique
 
@@ -1041,20 +1146,6 @@ Notes:
 - Tous les sujets sont "tech-isables"
 - Les portes sont ouvertes, il faut juste foncer dedans.
 Notes:
-
-
-### Échecs
-- les knobs
-- pas fini dans les temps
-Notes:
-- C'est la meta-loi
-
-
-### Succès ?
-- ce talk.
-- j'ai appris des trucs
-Notes:
-- peut-être que ca me servira jamais
 
 
 ### Jean-Pierre Legrand (1956-2020)
