@@ -81,13 +81,10 @@ export const FrequencyVisualizer: FunctionComponent<FrequencyVisualizerProps> = 
     }, [analyserNode, width, height]);
 
     return (
-        <div>
-            <canvas
-                ref={canvasRef}
-                width={width}
-                height={height}
-                style={{ border: '1px solid #333', borderRadius: '4px' }}
-            />
-        </div>
+        <canvas
+            ref={canvasRef}
+            width={width}
+            height={height}
+        />
     );
 };

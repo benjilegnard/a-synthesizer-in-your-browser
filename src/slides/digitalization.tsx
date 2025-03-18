@@ -11,8 +11,8 @@ import { FormField } from "../components/form-field";
 const { colors } = flavors.mocha;
 
 // Constants for SVG dimensions
-const GRAPH_WIDTH = WIDTH - 100;
-const GRAPH_HEIGHT = HEIGHT - 100;
+const GRAPH_WIDTH = WIDTH - 20;
+const GRAPH_HEIGHT = HEIGHT;
 const PADDING = 50;
 
 interface DigitalSignalPoint {
@@ -175,13 +175,13 @@ export const Digitalization: FunctionalComponent = () => {
             />
 
             {/* Voltage labels */}
-            <text x={PADDING - 30} y={PADDING} textAnchor="middle">2V</text>
-            <text x={PADDING - 30} y={GRAPH_HEIGHT / 2} textAnchor="middle">0V</text>
-            <text x={PADDING - 30} y={GRAPH_HEIGHT - PADDING} textAnchor="middle">-2V</text>
+            <text x={PADDING - 30} y={PADDING} textAnchor="middle" fill={colors.text.hex} font-size={'24px'}>5V</text>
+            <text x={PADDING - 30} y={GRAPH_HEIGHT / 2} textAnchor="middle" fill={colors.text.hex} font-size={'24px'}>0V</text>
+            <text x={PADDING - 30} y={GRAPH_HEIGHT - PADDING} textAnchor="middle" fill={colors.text.hex} font-size={'24px'}>-5V</text>
 
             {/* Time label */}
-            <text x={GRAPH_WIDTH - PADDING} y={GRAPH_HEIGHT / 2 + 20} textAnchor="end">t(ms)</text>
-            <text x={GRAPH_WIDTH / 2} y={GRAPH_HEIGHT - PADDING + 30} textAnchor="middle">{timeRange.value} ms</text>
+            <text x={GRAPH_WIDTH - PADDING} y={GRAPH_HEIGHT / 2 + 20} textAnchor="end" fill={colors.text.hex} font-size={'24px'}>t(ms)</text>
+            <text x={GRAPH_WIDTH / 2} y={GRAPH_HEIGHT - PADDING + 30} textAnchor="middle" fill={colors.text.hex} font-size={'24px'}>{timeRange.value} ms</text>
 
             {/* Analog signal path */}
             <path d={analogPath} fill="none" stroke={colors.yellow.hex} stroke-width="3" />
@@ -193,10 +193,6 @@ export const Digitalization: FunctionalComponent = () => {
             {quantizedPoints.value.map((point, index) => (
                 <g key={`sample-${index}`}>
                     <circle cx={point.x} cy={point.y} r="3" fill={colors.sky.hex} />
-                    <text x={point.x} y={GRAPH_HEIGHT - PADDING + 15} textAnchor="middle" fontSize="10">
-                        {index === 0 ? "1er" : index === quantizedPoints.value.length - 1 ? "dernier" : ""}
-                    </text>
-
                 </g>
             ))}
         </Graphics>

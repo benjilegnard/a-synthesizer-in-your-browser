@@ -24,7 +24,7 @@ interface Point {
 
 export const FourierSquareWave: FunctionalComponent = () => {
     // Signal to store the number of harmonics
-    const harmonicsCount = useSignal(0);
+    const harmonicsCount = useSignal(1);
 
     // Calculate points for each harmonic and the sum
     const harmonicPoints = useComputed(() => {
@@ -84,8 +84,6 @@ export const FourierSquareWave: FunctionalComponent = () => {
     });
 
     // Generate a perfect square wave for reference
-    // Fixed: Using useMemo instead of useComputed since it doesn't depend on signals
-    // Fixed: Starting the square wave at the bottom (-amplitude)
     const squareWavePath = useMemo(() => {
         const pointsPerPeriod = 100;
         const totalPoints = PERIODS * pointsPerPeriod;
@@ -130,7 +128,7 @@ export const FourierSquareWave: FunctionalComponent = () => {
     return (
         <><SettingsPopup>
             <FormField>
-                <label for="harmonics-slider">Number of Harmonics: {harmonicsCount.value}</label>
+                <label for="harmonics-slider" font-size="24px">Number of Harmonics: {harmonicsCount.value}</label>
                 <input
                     id="harmonics-slider"
                     type="range"
@@ -193,10 +191,10 @@ export const FourierSquareWave: FunctionalComponent = () => {
                 {/* Legend */}
                 <g transform={`translate(${WIDTH - 200}, ${PADDING})`}>
                     <text y="0" fill={colors.text.hex} font-size="12">Legend:</text>
-                    <line x1="0" y1="20" x2="20" y2="20" stroke={colors.yellow.hex} stroke-width={STROKE_WIDTH} stroke-dasharray="5,5" />
+                    <line x1="0" y1="20" x2="20" y2="20" stroke={colors.text.hex} stroke-width={STROKE_WIDTH} stroke-dasharray="5,5" />
                     <text x="25" y="24" fill={colors.text.hex} font-size="12">Onde carrée idéale</text>
 
-                    <line x1="0" y1="40" x2="20" y2="40" stroke="#000" stroke-width="2.5" />
+                    <line x1="0" y1="40" x2="20" y2="40" stroke={colors.yellow.hex} stroke-width="2.5" />
                     <text x="25" y="44" fill={colors.text.hex} font-size="12">Somme des Harmoniques</text>
 
                     {Array.from({ length: Math.min(5, harmonicsCount.value) }).map((_, i) => (

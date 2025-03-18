@@ -43,7 +43,9 @@ export const SineSound: FunctionalComponent = () => {
 
     return (
         <>
-            <WaveformVisualizer analyserNode={analyser} width={WIDTH} height={HEIGHT} />
+            <div style={{ position: "absolute", width: WIDTH, height: HEIGHT }}>
+                <WaveformVisualizer analyserNode={analyser} width={WIDTH / 3} height={HEIGHT / 3} />
+            </div>
             <PlayPauseButton
                 isPlaying={isPlaying.value}
                 onClick={toggleSound}

@@ -16,8 +16,7 @@ import { OscillatorOneEnvelopeGenerator, OscillatorTwoEnvelopeGenerator } from "
 import { TrigonometricCircle } from "./slides/trigonometric-circle";
 import { FourierSquareWave } from "./slides/fourier-square-wave";
 import { Digitalization } from "./slides/digitalization";
-import { WaveformPeriodicWave } from "./slides/wave-form-periodic-wave";
-import AudioPlayer from "./slides/pulse-width-player";
+import { AudioPlayer } from "./slides/audio-test-player";
 
 let deck = new Reveal({
     plugins: [Markdown, Notes, Highlight, RevealMath.KaTeX],
@@ -34,8 +33,7 @@ const components: Record<string, ComponentChild> = {
     "envelope-generator-1": <OscillatorOneEnvelopeGenerator />,
     "envelope-generator-2": <OscillatorTwoEnvelopeGenerator />,
     "fourier-square-wave": <FourierSquareWave />,
-    "audio-player": <AudioPlayer />,
-    "wave-form-periodic-wave": <WaveformPeriodicWave />,
+    "audio-test-player": <AudioPlayer />,
 };
 
 deck

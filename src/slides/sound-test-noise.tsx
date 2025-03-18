@@ -2,10 +2,13 @@ import { Graphics } from "../components/graphics";
 import { useSignal } from "@preact/signals";
 import { PlayPauseButton } from "../components/play-pause";
 import { SettingsPopup } from "../components/settings-popup";
+import { WaveformVisualizer } from "../components/wave-form-visualizer";
+import { HEIGHT, WIDTH } from "../common/constants";
 
 
 let context: AudioContext;
 let whiteNoise: AudioBufferSourceNode;
+let analyserNode: AnalyserNode;
 /**
  * Slide explaining what is sound in the air
  *
@@ -17,7 +20,6 @@ export const NoiseSound = () => {
 
     const toggleSound = () => {
         if (!isPlaying.value) {
-            console.log("play");
             context = new AudioContext();
             var bufferSize = 2 * context.sampleRate,
                 noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate),
@@ -31,11 +33,13 @@ export const NoiseSound = () => {
             whiteNoise.loop = true;
             whiteNoise.start(0);
             whiteNoise.connect(context.destination);
+
+            analyserNode = context.createAnalyser();
+            whiteNoise.connect(analyserNode);
             //play();
         }
 
         if (isPlaying.value) {
-            console.log("pause");
             // pause();
             whiteNoise?.disconnect();
         }
@@ -44,6 +48,9 @@ export const NoiseSound = () => {
 
     return (
         <>
+            <div style={{ position: "absolute" }}>
+                <WaveformVisualizer analyserNode={analyserNode} />
+            </div>
             <PlayPauseButton
                 isPlaying={isPlaying.value}
                 onClick={toggleSound}

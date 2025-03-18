@@ -3,6 +3,9 @@
 lang: fr
 ---
 -->
+<div id="audio-test-player" class="graphics"></div>
+
+
 <!-- .slide: data-background-image="images/home-alone.png" data-background-position="bottom left" data-background-size="contain" -->
 # Maman, j'ai développé un synthétiseur dans mon navigateur!<!-- .element: style="margin-left: 20%;" -->
 
@@ -198,37 +201,6 @@ Notes:
 
 ### Bitrate / Digitalisation
 <div id="digitalization" class="graphics"></div>
-
-
-
-### Attention, des maths :
-
-<div id="fourier-square-wave" class="graphics"></div>
-
-
-<div id="wave-form-periodic-wave" class="graphics"></div>
-
-
-<div id="envelope-generator-1" class="graphics"></div>
-
-
-<div id="envelope-generator-2" class="graphics"></div>
-
-
-<div id="high-pass-filter" class="graphics"></div>
-
-
-<div id="low-pass-filter" class="graphics"></div>
-
-
-<div id="audio-player" class="graphics"></div>
-
-
-### Onde + digitalisation
-// todo, onde avec échantillonage
-
-
-### Code naîf.
 
 
 ### Une onde sinusoîdale à 440Hz ?
@@ -917,9 +889,11 @@ Notes:
 
 ###  ASDR, attack sustain, release delay.
 
-<div id="envelope-generator-1" class="graphics" />
+<div id="envelope-generator-1" class="graphics"></div>
 
-###  filtres ++
+
+<div id="envelope-generator-2" class="graphics"></div>
+
 
 ### AudioParam
 - setValueAtTime()
