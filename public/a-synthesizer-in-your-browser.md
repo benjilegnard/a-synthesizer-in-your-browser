@@ -831,6 +831,8 @@ Notes:
 
 
 ### signals + computed + effect = win
+<img src="schemas/architecture-code.svg" />
+Notes:
 - testabilité
 - clarté du code.
 - je ne teste que mes effets
@@ -866,31 +868,35 @@ Notes:
 
 
 ### Dessiner l'échelle
+- trigonométrie: ordre inverse, avoir les coordonnées d'un point à partir d'un angle.
 
 
 ###  problématique de rotation, dans quel sens ?
-
+<img src="schemas/knob-left-right.svg"/>
 - droite => réduire, gauche => augmenter ?
 - ou bien calculer un angle ?
 
 
 ###  ca a l'air simple, mais déjà plein d'events à gérer.
+- mousedown, mousemove, mouseup, change
+- conflits avec les autres boutons autour ?
 
 
-###  machine à états locale au composant
+### Solution 1: phantom element
 
 
-###  comportement-driven-development
+### Solution 2: machine à états locale au composant
 
 
 ###  application sur les filtres
 
 
 
-## knob: avancé
+## knob: tout refaire
 
 
 ###  select vs input/range
+<img src="images/zooms/zoom-oscillator.png" />
 
 
 ###  foutre en l'air sa conception initiale
@@ -906,7 +912,6 @@ Notes:
 
 
 ###  knob range
-
 
 
 
