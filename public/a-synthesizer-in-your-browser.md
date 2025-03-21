@@ -87,9 +87,10 @@ Notes:
 ### Stack Technique 
 - ⚛️ preact (🚥 + signals)
 - 🔈 WebAudio
-- 🐼 PandaCSS<!-- .element class="fragment"-->
-- 🐙 github actions<!-- .element class="fragment"-->
 - ⚡ vite/vitest<!-- .element class="fragment"-->
+- 🐼 PandaCSS<!-- .element class="fragment"-->
+- 🐙 Github actions<!-- .element class="fragment"-->
+- ☁️ Azure static apps<!-- .element class="fragment"-->
 
 Notes:
 - faire "propre" quand même
@@ -98,11 +99,13 @@ Notes:
 - sortir de mes compétences
 
 
-### Qui-suis,je ?
+### Hello, my name is...
+<img class="portrait" src="images/memes/benjamin-legrand.png" />
 
-- Benjamin Legrand
-- Tech lead @ onepoint
-- @benjilegnard
+- __Benjamin Legrand__
+- 🧑‍💻Tech lead @ onepoint<!-- .element class="fragment"-->
+- 🌐 @benjilegnard<!-- .element class="fragment"-->
+- ⌨️ Split keyboards / 🎸 Musicien<!-- .element class="fragment"-->
 
 
 
@@ -110,6 +113,7 @@ Notes:
 
 
 ### Sans musique, la vie serait une erreur
+<img class="portrait" src="images/memes/nietzsche.jpg" />
 <span class="fragment">Frédéric <span class="fragment strike">Nitch</span></span>
 <span class="fragment"><span class="fragment strike">, Nietche</span></span>
 <span class="fragment"><span class="fragment strike">, Nietsche</span></span>
@@ -119,7 +123,7 @@ Notes:
 
 ### La musique c'est le silence entre les notes
 Claude Debussy
-
+<img class="portrait" src="images/memes/claude-debussy.jpg" />
 Notes:
 - En vrai, il l'avait piqué à mozart
 - mais bref.
@@ -142,7 +146,9 @@ Notes:
 
 
 ### En électricité analogique
+
 <img src="images/oscilloscope.png" />
+
 Un signal alternatif de + ou - 5 volts
 Notes:
 - le courant va dans un sens, puis dans l'autre
@@ -187,10 +193,6 @@ C'est un tableau de chiffres.
      0.00833441037684679,  -0.00968069676309824,  -0.020768849179148674,
     -0.01890774630010128, -0.006038447842001915,   0.009584184736013412,
     0.018607767298817635,  0.016116628423333168,   0.004246169701218605,
-   -0.009475498460233212, -0.016848448663949966,  -0.013856206089258194,
-   -0.002806499134749174,  0.009354893118143082,   0.015372405759990215,
-     0.01197686418890953, 0.0016246286686509848,   -0.00922265276312828,
-   -0.014103495515882969, -0.010381207801401615, -0.0006380616687238216,
     0.009079087525606155,  0.012990637682378292,   0.009003163315355778,
   -0.0001960703666554764, -0.008924535475671291,  -0.011998359113931656,
    -0.007796374149620533, 0.0009081565658561885,    0.00875935610383749,
@@ -260,10 +262,10 @@ Notes:
 
 
 ### Historique
-- Draft Spec W3C en 2011 📆
-- Remember Flash ? 🪦
-- High-level en JS
-- implementation en C/C++/Assembleur
+- 📅 Draft Spec W3C en 2011
+- 🪦 Macromedia Flash Player ?<!-- .element class="fragment"-->
+- ⬆️ API haut niveau en JavaScript<!-- .element class="fragment"-->
+- ⬇️ Bas niveau en C/C++/Assembleur<!-- .element class="fragment"-->
 Notes:
 - avant cette api, il fallait des plugins externes
 - Premier brouillons de specs en 2011
@@ -271,7 +273,7 @@ Notes:
 - codepen vers 2015 / 2016
 
 
-### Baseline
+### Supporté par:
 <img src="images/caniuse-webaudio.png"/>
 Notes:
 - Supporté par tous les navigateurs principaux
@@ -324,29 +326,20 @@ classDiagram
 
 
 ### Des noeuds (au cerveau?)
+| | |
+| - |  - |
+| AnalyserNode | AudioBufferSourceNode |
+| AudioWorkletNode | BiquadFilterNode |
+| ChannelMergerNode | ChannelSplitterNode |
+| ConstantSourceNode | ConvolverNode |
+| DelayNode | DynamicsCompressorNode |
+| GainNode | IIRFilterNode |
+| MediaElementAudioSourceNode | MediaStreamAudioDestinationNode |
+| MediaStreamAudioSourceNode | OscillatorNode |
+| PannerNode | StereoPannerNode |
+| WaveShaperNode |
 
-```
-AnalyserNode
-AudioBufferSourceNode
-AudioWorkletNode
-BiquadFilterNode
-ChannelMergerNode
-ChannelSplitterNode
-ConstantSourceNode
-ConvolverNode
-DelayNode
-DynamicsCompressorNode
-GainNode
-IIRFilterNode
-MediaElementAudioSourceNode
-MediaStreamAudioDestinationNode
-MediaStreamAudioSourceNode
-OscillatorNode
-PannerNode
-StereoPannerNode
-WaveShaperNode
-```
-<https://developer.mozilla.org/en-US/docs/Web/API/AudioNode>
+<a class="source" src="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode" />
 Notes:
 - vous inquiètez pas on va pas tous les faire
 - mon synth il est mono, donc déjà : un seul channel, tout ce qui est stéréo, on oublie
@@ -452,20 +445,81 @@ Notes:
 - en bout de chaine et en tout petit, on a des composants réutilisables
 
 
-### UI
+### Types de composants
 <img src="schemas/korg-components-map.svg" />
 
-layout / containers / presentational
+
+### Types de composants (2)
+| layout | containers | presentational |
+| - | - | - |
+| Body | Oscillateur1Panel | Knob |
+| ControlPanel | Keyboard | Key |
+| PatchPanel | | |
 
 
-### Masonry ?
+### CSS Grid ?
+<img src="schemas/css-grid.svg" />
+
+Notes:
 - css masonry, fait exactement ce qu'on veut
 - css grid pour avoir plus de souplesse sur l'alignement responsive des parties
 - flex pour le reste
-// TODO code example
+
+
+### Sur le conteneur:
+
+```css[|2|3|4|5-6]
+.control-panel {
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: 35% 20% 20% 25%;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+}
+```
 Notes:
-- Bon, maintenant qu'on a 
-- évidemment, on va commencer par le plus important.
+- je définie grace à l'unité fr 
+- en vertical, je détaille mes hauteur de colonnes.
+- parfait pour le responsive
+
+
+### Sur chaque élément:
+```css
+.oscillator-1-panel {
+  grid-area: osc1;
+}
+.oscillator-2-panel {
+  grid-area: osc2;
+}
+```
+Notes:
+- ensuite sur chaque élément que je vais positionner
+- je nomme ma zonne de grid
+- notez que pas de guillemets, c'est une ref css;
+
+
+### Sur le conteneur:
+```css
+.control-panel {
+    grid-template-areas:
+"osc1 osc2 mix hpf  lpf  viz viz eg2" 
+"osc1 osc2 mix hpf  lpf  mg  eg1 eg2" 
+"osc1 osc2 fm  cfm1 cfm2 mg  eg1 eg2" 
+"port mt   fm  cfm1 cfm2 mg  eg1 eg2";
+}
+```
+Notes:
+- là ou j'ai mis mes définitions de colonnes.
+- je dis aussi quelle area de grid va prendre plusieurs cellules de ma grille
+
+
+### Le rendu:
+<img src="images/capture-css-grid.png" />
+Notes:
+- vive CSS Grid
+- c'aurait été compliqué ça avant
+- Bon on a fait le panneau de contrôle, et la disposition globale.
+- mais en vrai le plus intéréssant / par quoi j'ai commencé, c'est le clavier.
 
 
 
@@ -641,16 +695,29 @@ export const Key = (props: KeyProps) => (
 ```
 
 
-### Position en CSS
+### Positions en CSS
+- position relative pour les touches blanches 
 - décalage / position absolute pour les noires
-- relative pour les blanches 
+```css
+.white-key {
+    position: relative;
+}
+.black-key {
+    position: absolute;
+    left: -5px;
+}
+```
 Notes:
-// TODO code example)
-ou passer, on se l'épargne
+- ou passer, on se l'épargne
+
+
+### Le rendu:
+<img src="images/capture-keyboard.png" />
 
 
 ### Bon.
-- jusqu'ici tout va bien, c'est joli, mais ça fait rien
+- Jusqu'ici tout va bien
+- C'est joli, mais ça fait rien
 Notes:
 - ce qui va créé du son, c'est nos: 
 
@@ -664,19 +731,6 @@ Notes:
 Notes:
 - on en a deux principaux sur le ms-20
 - et chacun peut-être configuré avec son type d'onde ( timbre) 
-
-
-### API
-```typescript
-type OscillatorNode ={
-  frequency: number;
-  detune: AudioParam;
-  type: "sine"|"triangle"|"sawtooth"|"rectangle"|"custom"
-}
-```
-Notes:
-- je suis contant, ca va se configurer simplement pour certaines valeurs
-- "ca colle"
 
 
 ### Mise en place du graphe audio
@@ -705,26 +759,38 @@ Notes:
 - Et je modifie le composant clé pour qu'il set deux fréquences
 
 
-### sinusoide / triangle / sawtooth
-- les types d'ondes sonores
-- // TODO svg avec select+option types de base
-Notes: 
-- je set mes composants front avec mes nodes et  
+### Zoom sur OscillatorNode
+```typescript
+class OscillatorNode extends AudioNode {
+  frequency: number;
+  detune: AudioParam;
+  type: "sine"|"triangle"|"sawtooth"|"rectangle"|"custom"
+}
+```
+Notes:
+- je suis contant, ca va se configurer simplement pour certaines valeurs
+- "ca colle", sauf que en fait non,
 
 
-### Code api webaudio
-- ne supporte que des types d'ondes "triangle", "sine", "rectangle" et "sawtooth"
+### Duty Cycle
+<img src="schemas/pulse-width.svg" />
+
+- types d'ondes manquant
+- parce que largeur variable
+Notes:
+- Oscillator.type ne supporte que des types d'ondes "triangle", "sine", "rectangle" et "sawtooth"
 - type custom : nécéssite de fournir une "PeriodicWave"
-<div id="pulse-width-waves" class="graphics"/>
+
+
+### createPeriodicWave(real, imag)
+
+- real: Array of A terms (cosine)
+- imag: Array of B terms (sine)
+
+<a class="source" href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createPeriodicWave">BaseAudioContext.createPeriodicWave</a>
 Notes:
-// TODO pulse-wave interactive slide ( moi ce que je veux avoir )
-
-
-### Doc api webaudio
-
-- real[]
-- imag[]
-Notes:
+- real: tableau de terms cosinus (A)
+- image: tableau de terms sinus (B)
 - la doc me parle de fournir des coefficients d'une transformation de fourier.
 
 
@@ -740,6 +806,10 @@ Notes:
 Notes:
 - donc là, je pleure, je me roule en boule sur le sol et j'arrête le projet
 - pas merci wikipedia
+
+
+### Joseph Fourier
+<img class="portrait" src="images/memes/fourier2.jpg" />
 
 
 ### Scary Math Symbols
@@ -771,12 +841,20 @@ Notes:
 - Bref, je suis content, je passe à la suite et là, c'est le drame
 
 
+### Pfiew 😅
+Notes:
+- J'ai l'air de faire le malin avec ca mais j'en ai chié à trouver le bon truc.
+- Et en fait, y'a sûrement moyen de faire mieux.
+- Bref, passons à un autre problème de mes doubles oscillateurs.
+
+
 ### Fréquence + échelle
 <img src="images/zooms/zoom-oscillator.png"/>
 Notes:
 - ça abaisse l'octave
 - là je tombe sur un problème
-- autant je pouvais mapper 
+- autant je pouvais mapper simplement ma fréquence à un osc
+- là il m'en faut deux.
 
 
 ### J'ai mis en place deux features, et c'est déjà le b*****
@@ -786,24 +864,28 @@ Notes:
 - problèmes : mon composant clé de clavier commande directement l'oscillateur
 - n'a pas connaissance de l'échelle ou des boutons à l'autre bout du 
 - Qui a la source de donnée sur la fréquence / la note ?
+- Je tombe dans le piège de débutant: mes composants s'occuppent de logique et d'état.
 
 
 ### Signals et gestion d'état
-```typescript
+```typescript[|1|3|5-7]
 const counter = signal(0);
 
 const oddOrEven = computed(() => counter.value % 2 ? "odd" : "event");
 
-effect(()=>{console.log(oddOrEvent.value)})
+effect(()=>{
+    console.log(oddOrEven.value);
+});
 ```
 Notes:
 - les signals, je développerai pas plus j'ai une conf là dessus.
-- mais en gros, réagir à une valeur encapsulée dans un signal
+- mais en gros, apî assez simple, permettant réagir à une valeur encapsulée dans un signal
 - dériver des valeurs
 - déclencher des effets lor du changement de valeur
+- sortir de mes composants la donnée.
 
 
-### Adapté à mon problème
+### Adapté à mon problème:
 ```typescript[|1|3|5-7|9-11]
 const currentFrequency = signal(440);
 
@@ -836,13 +918,8 @@ Notes:
 - testabilité
 - clarté du code.
 - je ne teste que mes effets
-
-
-### architecture en trois couche au final.
-- interface
-- effects
-- audio-graph
-Notes:
+- Architecture en trois couche au final.
+- interface / state / computed+effects / audio-graph
 - séparation des responsabilités.
 - TODO graphique couches 
 - Maintenant qu'on a pris de la hauteur, revenons sur les composants en bout de chaine, le knob
@@ -871,47 +948,99 @@ Notes:
 - trigonométrie: ordre inverse, avoir les coordonnées d'un point à partir d'un angle.
 
 
-###  problématique de rotation, dans quel sens ?
+### Problématique de rotation, dans quel sens ?
 <img src="schemas/knob-left-right.svg"/>
+Notes:
 - droite => réduire, gauche => augmenter ?
+- verticalement?
+
+
+### Où calculer un angle ?
+<img src="schemas/knob-vector.svg"/>
+Notes:
 - ou bien calculer un angle ?
 
 
-###  ca a l'air simple, mais déjà plein d'events à gérer.
+### Ca a l'air simple, mais déjà plein d'events à gérer.
 - mousedown, mousemove, mouseup, change
 - conflits avec les autres boutons autour ?
 
 
-### Solution 1: phantom element
+### Solution: phantom element
+// TODO animation
 
 
 ### Solution 2: machine à états locale au composant
 
 
-###  application sur les filtres
+### En vérité:
+- rien de satisfaisant
 
 
 
-## knob: tout refaire
+## Knob: tout refaire
 
 
-###  select vs input/range
+### Select vs input/range
 <img src="images/zooms/zoom-oscillator.png" />
 
 
-###  foutre en l'air sa conception initiale
+### Foutre en l'air sa conception initiale
+Notes:
+- ca arrive souvent dans le dev
+- faut savoir reconnaître qu'on s'est planté 
 
 
-###  repartir à zéro
+### Repartir à zéro
+Notes:
+- éviter de rajouter de la merde par dessus
+- La coulée de lave
 
 
-###  knob a11y
+### Solutions: Knob, le visuel uniquement
+<img src="schemas/knob-refacto.svg" />
 
 
-###  knob select
+### SelectKnob
+```html
+<select id="wave-form">
+    <option>rectangle</option>
+    <option>triangle</option>
+    <option>sawtooth</option>
+</select>
+```
+<select id="wave-form">
+    <option></option>
+    <option>rectangle</option>
+    <option>triangle</option>
+    <option>sawtooth</option>
+</select>
 
 
-###  knob range
+### Knob range
+```html
+<input
+  type="range"
+  min="0"
+  max="10"
+  step="0.1"
+  value="5"
+/>
+```
+
+<input
+  type="range"
+  min="0"
+  max="10"
+  step="0.1"
+  value="5"
+/>
+
+
+### Pas convaincu ?
+- moi non plus
+Notes:
+- tellement pas convaincu que je suis resté sur le truc de base.
 
 
 
@@ -930,7 +1059,7 @@ Notes:
 
 <img src="schemas/high-pass-low-pass.svg"/>
 Notes:
-- si je reviens à mon manuel vous voy
+- si je reviens à mon manuel vous voyez qu'il présente les deux courbes.
 
 
 ### Passe haut
@@ -945,13 +1074,25 @@ Notes:
 
 ### WebAudio API
 ```typescript
-class BiquadFilterNode {
-  
+class BiquadFilterNode extends AudioNode {
+    type: "lowpass" | "highpass" | "bandpass";//... etc...
+    frequency: AudioParam;
+    detune: AudioParam;
+    Q: AudioParam;// quality factor ?
+    gain: AudioParam;
 }
 ```
 
 
-### Ajout de noeuds dans mon graphe
+### Ajout d'une feature
+- toujours pareil
+Notes:
+- boom boom dans tes oreilles.
+- à ce niveau là je commence à être rôdé,
+- mise en place dans mon objet d'état
+- noeuds dans mon graphe audio
+- composants qui change le state
+- effect qui synchronize.
 
 
 
@@ -959,26 +1100,54 @@ class BiquadFilterNode {
 
 
 ### Ils étaient deux
-<img src="images/zooms/zoom-envelope-generator.png"/>
+<img src="images/zooms/zoom-envelope-generator.png" style="max-height: 60vh"/>
 Notes:
 - attack time, delay time, release
 - hold time, attack decay sustain
 
 
-###  ASDR, attack sustain, release delay.
+### ASDR, attack sustain, release, delay.
 
 <div id="envelope-generator-1" class="graphics"></div>
 
+
+### Générateur d'envelope 2
 
 <div id="envelope-generator-2" class="graphics"></div>
 
 
 ### AudioParam
-- setValueAtTime()
-- setLinearRampTo()
+```TypeScript
+param.value = 0.5;
+param.setValueAtTime(0.5, audioContext.currentTime);
+param.linearRampToValueAtTime(0,5, audioContext.currentTime + attackTime.value);
+```
 
 
 ### Example:
+```typescript
+effect(() => {
+	const { isPlaying } = state;
+	const { attackTime, delayTime, releaseTime } =
+		state.currentSetting.envelopeGenerator1;
+	if (isPlaying.value) {
+		envelopeGenerator1GainNode.gain.value = 0;
+		envelopeGenerator1GainNode.gain.setValueAtTime(
+			0,
+			audioContext.currentTime + delayTime.value,
+		);
+		envelopeGenerator1GainNode.gain.linearRampToValueAtTime(
+			1.0,
+			audioContext.currentTime + delayTime.value + attackTime.value,
+		);
+	} else {
+		envelopeGenerator1GainNode.gain.linearRampToValueAtTime(
+			0,
+			audioContext.currentTime + releaseTime.value,
+		);
+	}
+});
+```
 
 
 ### Nouveaux problèmes
@@ -1021,6 +1190,26 @@ Notes:
 
 
 ### Axe dans les tests unitaires
+```typescript[|1,7|3,9|16]
+import { render } from "@testing-library/preact";
+import { App } from "./app";
+import axe from "axe-core";
+
+describe("App", () => {
+	it("should be axe-essible", async () => {
+		const { container } = render(<App />);
+		const config = { rules: { "color-contrast": { enabled: false } } };
+		const results = await axe.run(container.getRootNode(), config);
+		for (const violation of results.violations) {
+			console.error(violation.description, violation.helpUrl);
+			for (const node of violation.nodes) {
+				console.error(node.failureSummary, node.html);
+			}
+		}
+		expect(results.violations).toHaveLength(0);
+	});
+});
+```
 Notes:
 - un des trucs que j'ai bien fait sur ce projet c'est un test auto avec axe-core
 - charge toute l'app sur des projets on peut charger toute une page / écran
@@ -1035,12 +1224,9 @@ Notes:
 ### // TODO
 <img src="images/zooms/zoom-modulation-generator.png" />
 Notes:
-###  ici des maths lourds
-// TODO
-###  fourier
-// TODO
-###  section à supprimer si pas le temps
-// TODO
+- ici des maths lourds
+- fourier
+- section à supprimer si pas le temps
 
 
 
@@ -1054,16 +1240,20 @@ Notes:
 ### Connections
 - revoir tout le graphe audio
 
-###  matter.js 
+
+### matter.js 
 
 - Un moteur physique dans un synthétiseur: 
   - parce que pourquoi pas ?
-
-###  longueur du cable 
-###  machine a états
-### Péter mon dev initial
+Notes:
+- longueur du cable 
+- machine a états
+- Péter mon dev initial
 - rajouter les noeuds de "connection"
-### Backup par.
+
+
+### Backup par :
+- ?
 
 
 
@@ -1076,8 +1266,9 @@ Notes:
 ### Les fonctionnalités pas ~~présentées~~ finies
 - settings et indexedb/pwa
 - events claviers ( WebMidi ? )
-- responsive (= ajouter une scrollbar)
+- responsive...
 Notes:
+- ajouter une scrollbar.
 - j'ai fait le coeur de métier, mais je pourrais plug plus de features encore
 
 
@@ -1134,6 +1325,7 @@ Notes:
 ### Ce n'est pas grave
 - si vos side-projects prennent du temps
 - si ça n'avance pas
+<img src="images/github-code-frequency.png" />
 Notes:
 - Le pire ennemi.
 - Ne peignez pas (trop) la girafe. (yack-shaving)
@@ -1141,9 +1333,13 @@ Notes:
 
 
 ### Build in public
-- postuler à des sujets au conf, ca fout un coup de pression pour finirs ses side-projects.
+<img src="images/twitch-benjilegnard.png" />
+
+- suivez moi sur [twitch.tv/benjilegnard](https://twitch.tv/benjilegnard) 😏
+- et proposez des sujets aux conf's
 Notes:
 - j'ai aussi fait le truc en stream.
+- ca fout un coup de pression pour finirs ses side-projects.
 
 
 ### Les sujets de niche
@@ -1151,6 +1347,9 @@ Notes:
 - Tous les sujets sont "tech-isables"
 - Les portes sont ouvertes, il faut juste foncer dedans.
 Notes:
+- si vous en avez marre de faire des applications crud
+- ou des backoffices insipides.
+- Bref, j'en ai terminé.
 
 
 ### Jean-Pierre Legrand (1956-2020)

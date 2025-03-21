@@ -3,6 +3,7 @@ import { SettingsPopup } from '../components/settings-popup';
 import { Graphics } from '../components/graphics';
 import { FunctionalComponent } from 'preact';
 import { HEIGHT, WIDTH, STROKE_WIDTH, catppuccin } from '../common/constants';
+import { FormField } from '../components/form-field';
 
 interface Point {
     x: number;
@@ -273,7 +274,7 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                 <form style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '16px' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {delayEnabled &&
-                            <div>
+                            <FormField>
                                 <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
                                     Delay: {delayTime.toFixed(2)}s
                                 </label>
@@ -286,9 +287,9 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                                     onInput={(e) => setDelayTime(parseFloat((e.target as HTMLInputElement).value))}
                                     style={{ width: '100%' }}
                                 />
-                            </div>
+                            </FormField>
                         }
-                        <div>
+                        <FormField>
                             <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
                                 Attack: {attackTime.toFixed(2)}s
                             </label>
@@ -301,9 +302,9 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                                 onInput={(e) => setAttackTime(parseFloat((e.target as HTMLInputElement).value))}
                                 style={{ width: '100%' }}
                             />
-                        </div>
+                        </FormField>
                         {decayEnabled &&
-                            <div>
+                            <FormField>
                                 <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
                                     Decay: {decayTime.toFixed(2)}s
                                 </label>
@@ -316,11 +317,11 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                                     onInput={(e) => setDecayTime(parseFloat((e.target as HTMLInputElement).value))}
                                     style={{ width: '100%' }}
                                 />
-                            </div>}
+                            </FormField>}
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        <div>
+                        <FormField>
                             <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
                                 Sustain Time: {sustainTime.toFixed(2)}s
                             </label>
@@ -333,9 +334,9 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                                 onInput={(e) => setSustainTime(parseFloat((e.target as HTMLInputElement).value))}
                                 style={{ width: '100%' }}
                             />
-                        </div>
+                        </FormField>
                         {decayEnabled &&
-                            <div>
+                            <FormField>
                                 <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
                                     Sustain Level: {sustainLevel.toFixed(2)}
                                 </label>
@@ -348,9 +349,9 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                                     onInput={(e) => setSustainLevel(parseFloat((e.target as HTMLInputElement).value))}
                                     style={{ width: '100%' }}
                                 />
-                            </div>
+                            </FormField>
                         }
-                        <div>
+                        <FormField>
                             <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
                                 Release: {releaseTime.toFixed(2)}s
                             </label>
@@ -363,7 +364,7 @@ export const EnvelopeGenerator: FunctionalComponent<EnvelopeGeneratorProps> = ({
                                 onInput={(e) => setReleaseTime(parseFloat((e.target as HTMLInputElement).value))}
                                 style={{ width: '100%' }}
                             />
-                        </div>
+                        </FormField>
                     </div>
                 </form>
                 {/* Play button */}

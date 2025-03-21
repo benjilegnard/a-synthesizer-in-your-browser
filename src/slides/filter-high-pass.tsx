@@ -3,12 +3,12 @@ import { SettingsPopup } from "../components/settings-popup";
 import { FunctionalComponent } from 'preact';
 import { useState, useEffect, useRef } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
-import { WIDTH } from "../common/constants";
+import { HEIGHT, WIDTH } from "../common/constants";
 
 // Constants
 const PADDING = 20;
-const SVG_WIDTH = 300;
-const SVG_HEIGHT = 200;
+const SVG_WIDTH = WIDTH;
+const SVG_HEIGHT = HEIGHT;
 const MARGIN = { top: 20, right: 20, bottom: 30, left: 40 };
 const GRAPH_WIDTH = SVG_WIDTH - MARGIN.left - MARGIN.right;
 const GRAPH_HEIGHT = SVG_HEIGHT - MARGIN.top - MARGIN.bottom;

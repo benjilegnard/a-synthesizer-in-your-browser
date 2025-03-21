@@ -90,7 +90,7 @@ export const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ frequency = 4
 
     return (
         <div style={{ padding: '20px', maxWidth: '650px', margin: '0 auto' }}>
-
+            <h2>Test slide, please ignore...</h2>
             <div style={{ marginBottom: '20px' }}>
                 <button
                     onClick={toggleAudio}
@@ -109,12 +109,12 @@ export const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ frequency = 4
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-                <h3>Waveform Visualization</h3>
+                <strong>Waveform Visualization</strong>
                 <WaveformVisualizer analyserNode={analyser} />
             </div>
 
             <div style={{ marginBottom: '20px' }}>
-                <h3>Frequency Spectrum</h3>
+                <strong>Frequency Spectrum</strong>
                 <FrequencyVisualizer analyserNode={analyser} />
             </div>
         </div>
