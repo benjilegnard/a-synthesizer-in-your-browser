@@ -1369,6 +1369,17 @@ Notes:
 
 
 ## Merci
+<div style="display:flex; flex-direction: row;justify-content: space-between;">
 <a href="https://openfeedback.io/0nEhuP6qarjm0R4pbRG1/2025-03-21/rushwpQL24fyn25fNOz2" target="_blank">
-  <img src="images/qrcode-atlday.png" />
+        Feedbacks: <br/>
+        <img src="images/qrcode-atlday.png" />
 </a>
+<a>
+Projet:<br/>
+<img src="images/qrcode-projet.png" /></a>
+<a>
+Slides:<br/>
+<img src="images/qrcode-slide.png" /></a>
+</div>
+
+<https://gotloop.github.io/ms-20/>

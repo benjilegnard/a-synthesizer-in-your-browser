@@ -202,9 +202,9 @@ const FilterVisualization = ({ type, cutoffFreq, qFactor }: { type: 'highpass' |
         <Graphics>
             <g transform={`translate(${MARGIN.left}, ${MARGIN.top})`}>
                 {/* X-axis */}
-                <line x1="0" y1={GRAPH_HEIGHT} x2={GRAPH_WIDTH} y2={GRAPH_HEIGHT} stroke={colors.surface2} />
+                <line x1="0" y1={GRAPH_HEIGHT} x2={GRAPH_WIDTH} y2={GRAPH_HEIGHT} stroke={colors.surface2} stroke-width="3" />
                 {/* Y-axis */}
-                <line x1="0" y1="0" x2="0" y2={GRAPH_HEIGHT} stroke={colors.surface2} />
+                <line x1="0" y1="0" x2="0" y2={GRAPH_HEIGHT} stroke={colors.surface2} stroke-width="3" />
 
                 {/* X-axis labels */}
                 <text x={GRAPH_WIDTH / 2} y={GRAPH_HEIGHT + 25} textAnchor="middle" fontSize="10" fill={colors.text}>Frequency (Hz)</text>
@@ -225,7 +225,8 @@ const FilterVisualization = ({ type, cutoffFreq, qFactor }: { type: 'highpass' |
                     x2={logFreqToX(cutoffFreq)}
                     y2={GRAPH_HEIGHT}
                     stroke={filterColor}
-                    strokeDasharray="3,3"
+                    stroke-dasharray="3,3"
+                    stroke-width="2"
                 />
                 <text
                     x={logFreqToX(cutoffFreq)}
@@ -242,7 +243,7 @@ const FilterVisualization = ({ type, cutoffFreq, qFactor }: { type: 'highpass' |
                     d={`M${points.map(pt => `${pt.x},${pt.y}`).join(' L')}`}
                     fill="none"
                     stroke={filterColor}
-                    strokeWidth="2"
+                    stroke-width="3"
                 />
             </g>
         </Graphics>
