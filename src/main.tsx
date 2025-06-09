@@ -48,6 +48,7 @@ deck
         transition: "none",
         backgroundTransition: "none",
         history: true,
+        pdfSeparateFragments: false,
         keyboard: { b: null } as unknown as boolean,
     })
     .then(() => {
