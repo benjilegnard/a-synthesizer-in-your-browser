@@ -1336,10 +1336,10 @@ Notes:
 <img src="images/twitch-benjilegnard.png" />
 
 - suivez moi sur [twitch.tv/benjilegnard](https://twitch.tv/benjilegnard) 😏
-- et proposez des sujets aux conf's
 Notes:
 - j'ai aussi fait le truc en stream.
 - ca fout un coup de pression pour finirs ses side-projects.
+- et proposez des sujets aux conf's, ca force
 
 
 ### Les sujets de niche
@@ -1372,7 +1372,7 @@ Notes:
 <div style="display:flex; flex-direction: row;justify-content: space-between;">
 <a href="https://openfeedback.io/0nEhuP6qarjm0R4pbRG1/2025-03-21/rushwpQL24fyn25fNOz2" target="_blank">
         Feedbacks: <br/>
-        <img src="images/qrcode-atlday.png" />
+        <img src="images/qrcode-jug-summer-camp.png" />
 </a>
 <a>
 Projet:<br/>
