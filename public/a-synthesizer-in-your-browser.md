@@ -2,10 +2,8 @@
 ---
 lang: fr
 ---
--->
 <div id="audio-test-player" class="graphics"></div>
-
-
+-->
 <!-- .slide: data-background-image="images/home-alone.png" data-background-position="bottom left" data-background-size="contain" -->
 # Maman, j'ai développé un synthétiseur dans mon navigateur!<!-- .element: style="margin-left: 20%;" -->
 
